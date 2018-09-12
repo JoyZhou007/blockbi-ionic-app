@@ -1,0 +1,9 @@
+<ion-item no-lines (click)="openProfileDetail(contact)">
+  <ion-avatar item-start>
+    <img style="width:60px; height:60px;"
+         src="{{contact.user_profile_path ? appConfig.resourceDomain + contact.user_profile_path : ''}}" alt="{{contact.work_name}}"/>
+  </ion-avatar>
+  <h2>{{contact.work_name}}</h2>
+  <p *ngIf="group === 'Internal' || group === 'Cooperator'">{{contact.p_name}}</p>
+  <p *ngIf="group === 'Cooperator'">{{contact.company_name}}</p>
+</ion-item>

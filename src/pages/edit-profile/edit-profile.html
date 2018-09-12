@@ -1,0 +1,201 @@
+<!--
+  Generated template for the EditProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div [class.filter]="clickIcon" class="filter-wrap">
+    <ion-header class="g-header clearfix">
+            <ion-navbar>
+                <span class="bi-icon-down back" navPop></span>
+                <span class="g-header-title">EDIT PROFILE</span>
+                <span class="send" (click)="saveBaseInfo()">SEND</span>
+            </ion-navbar>
+
+        <!--头像 名字-->
+        <div class="edit-profile-name clearfix">
+            <div>
+                <img src="{{config.resourceDomain}}{{userInfo.user_profile_path}}" alt="">
+            </div>
+            <div>
+                <div class="f9-f" style="text-align: left;">WORK NAME</div>
+                <form [formGroup]="formGroup">
+                    <input class="f20-f" [(ngModel)]="userInfo.work_name" placeholder="WORK NAME"
+                           formControlName="workName">
+                    <div *ngIf="workName.invalid && (workName.dirty || workName.touched || hasClickOnSend)"
+                         text-left
+                         class="input-error-msg">
+                        <div *ngIf="workName.errors.required">work name is required.</div>
+                    </div>
+                </form>
+                <input class="f20-f first-name" [(ngModel)]="userInfo.first_name" placeholder="FIRST NAME">
+                <input class="f20-f last-name" [(ngModel)]="userInfo.last_name"  placeholder="LAST NAME">
+            </div>
+        </div>
+        <!--列表切换-->
+        <ion-segment class="edit-profile-tab" [ngModel]="tabType">
+            <ion-segment-button value="general" (click)="onClickTab(0)">
+                <span class="bi-icon-general"></span>
+                <div class="f3-f"> General</div>
+            </ion-segment-button>
+            <ion-segment-button value="resume" (click)="onClickTab(1)">
+                <span class="bi-icon-resume"></span>
+                <div class="f3-f">Resume</div>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-header>
+
+    <ion-content padding>
+        <!--出生日期-->
+        <div class="edit-profile-general" *ngIf="tabType == 'general'">
+            <div class="edit-profile-title f9-f">BIRTHDAY</div>
+            <div class="edit-profile-input">
+                <ion-datetime displayFormat="DD/MM/YYYY" class="f19-f" [(ngModel)]="userInfo.birthday"></ion-datetime>
+            </div>
+            <!--性别-->
+            <div class="edit-profile-country">
+                <div class="edit-profile-title f9-f">GENDER</div>
+                <div class="edit-profile-input f19-f">
+                    <ion-select [(ngModel)]="userInfo.gender" interface="action-sheet">
+                        <ion-option value="{{female}}">Female</ion-option>
+                        <ion-option value={{male}}>Male</ion-option>
+                        <ion-option value="{{other}}">Other</ion-option>
+                    </ion-select>
+                    <!--  <input type="text" [(ngModel)]="userInfo.genderType">-->
+                </div>
+            </div>
+            <!--国家-->
+            <div class="edit-profile-country">
+                <div class="edit-profile-title f9-f">COUNTRY</div>
+                <div class="edit-profile-input f19-f">
+                    <!-- <input type="text" [(ngModel)]="currentCountry">-->
+                    <ion-select [(ngModel)]="userInfo.country">
+                        <ion-option *ngFor="let area of areaCountry" value="{{area.code}}">{{area.chs}}</ion-option>
+                    </ion-select>
+                </div>
+            </div>
+        </div>
+        <div class="edit-profile-resume" *ngIf="tabType == 'resume'">
+            <div class="resume-education-title f7-f">EDUCATION</div>
+            <div *ngFor="let education of educationData;let i = index">
+                <div *ngIf="education?.operation != -1">
+                    <!--education 日期-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">PERIOD</div>
+                        <div class="edit-profile-input g-time-input-wrap clearfix">
+                            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="education.start_date"
+                                          class="f19-f"></ion-datetime>
+                            <span class="bi-icon-arrow3"></span>
+                            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="education.end_date"
+                                          class="f19-f"></ion-datetime>
+                        </div>
+                    </div>
+                    <!--education 学校-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">SCHOOL</div>
+                        <div class="edit-profile-input">
+                            <input type="text" class="f19-f" [(ngModel)]="education.school">
+                            <div *ngIf="education?.schoolError"
+                                 text-left
+                                 class="input-error-msg">
+                                school is required.
+                            </div>
+                        </div>
+                    </div>
+                    <!--education 主修-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">MARJOR</div>
+                        <div class="edit-profile-input">
+                            <input type="text" class="f19-f" [(ngModel)]="education.major">
+                        </div>
+                    </div>
+                    <!--education 描述-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">SPECIFICATION</div>
+                        <div class="edit-profile-input">
+                            <input type="text" class="f19-f" [(ngModel)]="education.description">
+                        </div>
+                    </div>
+                    <!--education 删除按钮-->
+                    <div class="edit-profile-country">
+                        <div class="g-remove-btn" (click)="removeResume(education,i,0)">REMOVE THIS EDUCATION</div>
+                    </div>
+                </div>
+            </div>
+            <div class="resume-education-title">EXPERIENCE</div>
+            <div margin-top *ngFor="let experience of experienceData; let i = index">
+                <div *ngIf="experience?.operation != -1">
+                    <!--experience 日期-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">PERIOD</div>
+                        <div class="edit-profile-input g-time-input-wrap clearfix">
+                            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="experience.start_date"
+                                          class="f19-f"></ion-datetime>
+                            <span class="bi-icon-arrow3"></span>
+                            <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="experience.end_date"
+                                          class="f19-f"></ion-datetime>
+                        </div>
+                    </div>
+                    <!--experience 公司-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">COMPANY</div>
+                        <div class="edit-profile-input">
+                            <input type="text" class="f19-f" [(ngModel)]="experience.company">
+                            <div *ngIf="experience?.companyError"
+                                 text-left
+                                 class="input-error-msg">
+                                company is required.
+                            </div>
+                        </div>
+                    </div>
+                    <!--experience 开始职位-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">INITIAL POSITION</div>
+                        <div class="edit-profile-input">
+                            <input type="text" class="f19-f" [(ngModel)]="experience.initial_position">
+                        </div>
+                    </div>
+                    <!--experience 结束职位-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">LAST POSITION</div>
+                        <div class="edit-profile-input">
+                            <input type="text" class="f19-f" [(ngModel)]="experience.finial_position">
+                        </div>
+                    </div>
+                    <!--experience 描述-->
+                    <div class="edit-profile-country">
+                        <div class="edit-profile-title f9-f">SPECIFICATION</div>
+                        <div class="edit-profile-input">
+                            <input type="text" class="f19-f" [(ngModel)]="experience.description">
+                        </div>
+                    </div>
+                    <!--experience 删除按钮-->
+                    <div class="edit-profile-country">
+                        <div class="g-remove-btn" (click)="removeResume(experience,i,1)">REMOVE THIS EXPERIENCE</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</div>
+
+<div class="g-right-fab" *ngIf="tabType == 'resume'">
+    <ion-fab right bottom>
+        <button ion-fab color="light" (click)="onClickIcon()">
+            <span #fabBtn>+</span>
+        </button>
+        <ion-fab-list side="top">
+            <button ion-fab (click)="onAddExperience()">
+                <span class="bi-icon-new-experience ion-fab-icon"></span>
+                <i class="fab-title f23-f">NEW</i>
+                <i class="fab-title f23-f">EXPERIENCE</i>
+            </button>
+            <button ion-fab (click)="onAddEducation()">
+                <span class="bi-icon-new-education ion-fab-icon"></span>
+                <i class="fab-title f23-f">NEW</i>
+                <i class="fab-title f23-f">EDUCATION</i>
+
+            </button>
+        </ion-fab-list>
+    </ion-fab>
+</div>

@@ -1,0 +1,39 @@
+page-add-friend {
+  .add-friend-wrap{
+    padding-top:10px;
+  }
+  .add-friend-info{
+    border-bottom:1px solid $c2-c-1;
+    ion-item{
+      padding-left:0!important;
+    }
+    .item-inner{
+      border:none!important;
+    }
+    ion-avatar{
+      margin: 0 10px 0 0!important;
+      width:34px!important;
+      height:34px!important;
+      min-width:34px!important;
+      min-height:34px!important;
+    }
+    ion-label{
+      margin:0 8px 0 0!important;
+    }
+    .level{
+      font-size:12px;
+      font-family:$fontL;
+      color:$c2-c;
+      font-style:italic;
+    }
+  }
+  .company{
+    margin-top: 13px;
+    p{
+      margin:0 0 5px 0!important;
+      &:nth-child(2){
+        color: $b2-c;
+      }
+    }
+  }
+}

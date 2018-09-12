@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-navbar class="chat-content-more-title">
+        <span text-center>More</span>
+        <span class="bi-icon-esc" navPop></span>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="chat-more-content" padding-left="0" padding-right="0">
+    <ion-list>
+        <button ion-item text-center
+                (click)="inviteMoreMember($event)"
+                *ngIf="!menuInfo?.is_Friend && (menuInfo?.is_mission != 1)"
+        >
+            INVITE MEMBER TO JOIN
+        </button>
+        <button ion-item text-center (click)="setChatChannel($event)"
+                *ngIf="menuInfo?.is_host == 1 && !menuInfo?.is_Friend && (menuInfo?.is_mission != 1)">
+            SETTING
+        </button>
+        <button ion-item text-center
+                *ngIf="!menuInfo?.is_Friend"
+                (click)="editChannelTopic($event)">
+            EDIT TOPIC
+        </button>
+        <button ion-item text-center class="hide">
+            CLEAR MESSAGE
+        </button>
+        <button  ion-item text-center
+                 (click)="quitTheChannel($event)"
+                 *ngIf="menuInfo?.is_host == 0 && !menuInfo?.is_Friend && (menuInfo?.is_mission != 1)">
+            QUIT CHANNEL
+        </button>
+        <button
+                (click)="deleteTheChannel($event)"
+                ion-item text-center  *ngIf="menuInfo?.is_host == 1 && !menuInfo?.is_Friend && (menuInfo?.is_mission != 1)">
+            DELETE CHANNEL
+        </button>
+        <button ion-item text-center
+                *ngIf="!menuInfo?.is_Friend"
+                (click)="showTeamMember($event)">
+            TEAM MEMBER
+        </button>
+        <button ion-item text-center (click)="starredOrCancelChatChannel($event)">
+            {{menuInfo?.is_starred?'CANCEL STARRED':'STARRED'}}
+        </button>
+    </ion-list>
+</ion-content>

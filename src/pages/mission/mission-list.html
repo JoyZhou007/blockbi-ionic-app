@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar>
+    <bi-logo></bi-logo>
+    <bi-notice></bi-notice>
+    <bi-search></bi-search>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="mission-content">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <!--progress-->
+  <ion-segment [(ngModel)]="progress" color="primary" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="todo" class="mission-progress">
+      <span class="bi-icon-to-do"></span>
+      <div class="mission-progress-tit">TO DO</div>
+    </ion-segment-button>
+    <ion-segment-button value="doing" class="mission-progress">
+      <span class="bi-icon-doing"></span>
+      <div class="mission-progress-tit">
+        DOING
+      </div>
+    </ion-segment-button>
+    <ion-segment-button value="done" class="mission-progress">
+      <span class="bi-icon-done"></span>
+      <div class="mission-progress-tit">
+        DONE
+      </div>
+    </ion-segment-button>
+  </ion-segment>
+
+
+  <!--type-->
+  <ion-slides slidesPerView="4" class="type-menu">
+    <ion-slide class="type-slide"
+               *ngFor="let slide of typeSlides; let i=index;"
+               [class.type-slide-active]="currentTypeIdx===i"
+               (click)="clickSwitchType($event,slide,i)"
+    >
+      <span class="bi-icon-ctrl bi-icon-resume"></span>
+      <div class="mission-progress-tit">
+        {{slide.name}}
+      </div>
+    </ion-slide>
+
+  </ion-slides>
+
+  <!--mission card-->
+
+  <div *ngFor="let missionObj of missionObjList">
+    <div *ngIf="missionObj.type===missionType || missionType==='all'">
+      <ion-card class="tips-item"
+                *ngIf="missionObj.status === missionStatus || missionStatus==='all'"
+      >
+        <!--mission start-->
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="{{config.resourceDomain}}{{missionObj.creator_info && missionObj.creator_info.user_info
+                    &&  missionObj.creator_info.user_info.user_profile_path}}">
+          </ion-avatar>
+          <p>{{missionObj.name}}</p>
+          <p>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <span class="tips-title">{{missionObj.missionType}}</span>
+            <span class="tips-title">{{missionObj.createDetailTime}}</span>
+          </p>
+        </ion-item>
+        <ion-item>
+          <!--mission 进度条-->
+          <div class="clearfix">
+            <bi-mission-progress class="mission-progress" [eleData]="missionObj"></bi-mission-progress>
+          </div>
+          <ion-row>
+            <ion-col left>
+              <p>Begin it from</p>
+              <h2 class="time-day">{{missionObj.startShow.day}}</h2>
+              <div class="time-hour">
+                <p>{{missionObj.startShow.month}}</p>
+                <p>{{missionObj.startShow.hour}}</p>
+              </div>
+            </ion-col>
+            <div text-center class="time-icon">
+              <span class="bi-icon-arrow3"></span>
+            </div>
+            <ion-col right>
+              <p>End</p>
+              <div *ngIf="!missionObj.endIsPending">
+                <h2 class="time-day">{{missionObj.endShow.day}}</h2>
+                <div class="time-hour">
+                  <p>{{missionObj.endShow.month}}</p>
+                  <p>{{missionObj.endShow.hour}}</p>
+                </div>
+              </div>
+              <div *ngIf="missionObj.endIsPending">
+                PENDING
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        <!--mission end-->
+      </ion-card>
+    </div>
+
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,57 @@
+contact-personal-analysis {
+  .personal-general-title {
+    height: 30px;
+    background-color: #f8f7f7;
+    width: calc(100vw - 112px);
+    line-height: 30px;
+    padding-left: 10px;
+  }
+  ion-slides {
+    width: 160px;
+    ion-slide {
+      width: 24px !important;
+    }
+  }
+  .intro-slide-wrap {
+    height:30px;
+    width: 226px;
+    padding: 2px 32px;
+    border: 1px solid rgba(226,226,233,.5);
+    border-radius: 24px;
+  }
+  .intro-slide-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 100%;
+    line-height: 22px;
+    text-align: center;
+    background: #D8D8D8;
+    position: absolute;
+  }
+  .intro-slide-wrap {
+    position: relative;
+  }
+  .intro-slide-prev {
+    left: 2px;
+    top: 3px;
+    color: $write;
+    transform: rotate(90deg);
+    display: inline-block;
+    &:before {
+      font-size: 10px;
+    }
+
+  }
+
+  .intro-slide-next {
+    right: 2px;
+    top: 3px;
+    color: $write;
+    display: inline-block;
+    transform: rotate(-90deg);
+    &:before {
+      font-size: 10px;
+    }
+
+  }
+}

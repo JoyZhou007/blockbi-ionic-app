@@ -1,0 +1,61 @@
+<!-- Generated template for the ChatContentMessagePostComponent component -->
+<div class="post-message" *ngIf="messageObj"
+     [class.self-message]="messageObj?.isSelf"
+     [class.other-message]="!messageObj?.isSelf"
+>
+    <img class="user-avatar"
+         src="{{messageObj?.user_info?.user_profile_path? appConfig.resourceDomain+messageObj?.user_info?.user_profile_path:''}}">
+    <div class="user-name">
+        <span>{{messageObj?.user_info?.work_name}}</span>
+        <span class="bi-icon-resume user-state"></span>
+        <span class="message-time">{{messageObj?.date_time}}</span>
+    </div>
+    <div class="file-name">
+        <span>{{isShareMessage?'share' : isForwardMessage? 'Forward':'Post'}}</span>
+    </div>
+    <div class="post-content"    *ngIf="!isForwardMessage">
+        <div class="message-file">
+            <span class="file-icon file-icon-post"></span>
+            <div class="file-info">
+                <p>{{fileDetail?.post_name}}</p>
+                <p>Last comments 20:00 20th JUL</p>
+            </div>
+        </div>
+        <div class="post-summary">
+            <span>
+            {{fileDetail?.summary}}
+            </span>
+        </div>
+        <div class="first_attachment" *ngIf="fileDetail?.first_attachment?.path">
+            <img src="{{fileDetail?.first_attachment?.path? appConfig.resourceDomain+fileDetail?.first_attachment?.path:''}}">
+        </div>
+    </div>
+
+    <div class="post-content post-forward" *ngIf="isForwardMessage">
+        <div class="forward-message-owner">
+            <span class="bi-icon-forward"></span>
+            <img src="{{originalMessageOwner?.user_profile_path? appConfig.resourceDomain + originalMessageOwner?.user_profile_path:''}}">
+            <div class="user-name">
+                <span>{{originalMessageOwner?.work_name}}</span>
+            </div>
+            <div class="file-name">
+                <span>Post</span>
+            </div>
+        </div>
+            <div class="message-file">
+                <span class="file-icon file-icon-post"></span>
+                <div class="file-info">
+                    <p>{{originalMessageObj?.detail?.post_name}}</p>
+                    <p>Last comments 20:00 20th JUL</p>
+                </div>
+            </div>
+            <div class="post-summary">
+                <span>
+                {{originalMessageObj?.detail?.summary}}
+                </span>
+            </div>
+            <div class="first_attachment" *ngIf="originalMessageObj?.detail?.first_attachment?.path">
+                <img src="{{originalMessageObj?.detail?.first_attachment?.path? appConfig.resourceDomain+originalMessageObj?.detail?.first_attachment?.path:''}}">
+            </div>
+    </div>
+</div>

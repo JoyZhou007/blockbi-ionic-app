@@ -1,0 +1,6 @@
+
+//按钮投影
+.but-shadow, .but-shadow:active{
+  -webkit-box-shadow:0 2px 4px rgba($c18-c-78, .5);
+  box-shadow:0 2px 4px rgba($c18-c-78, .5);
+}

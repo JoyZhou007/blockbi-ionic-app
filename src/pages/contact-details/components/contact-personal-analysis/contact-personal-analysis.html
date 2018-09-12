@@ -1,0 +1,25 @@
+<!-- Generated template for the ContactPersonalAnalysisComponent component -->
+<div>
+  <div class="personal-general-title f7-f">SKILL</div>
+  <div class="g-margin-left10">
+    <div *ngFor="let skill of skillList">
+      <div class="f19-f">{{skillNameList[skill.skill_name - 1].name}}</div>
+      <div class="f19-f" style="color: #eee;">{{skillLevel[skill.level - 1]}}</div>
+
+      <div class="intro-slide-wrap" slidesSkill>
+        <ion-slides slidesPerView = '5' spaceBetween = '10' #slides>
+          <ion-slide *ngFor="let like of skill.likeUsers">
+            <img class="g-user-profile24" src="{{config.resourceDomain}}{{like.user_profile_path}}" alt="">
+          </ion-slide>
+        </ion-slides>
+        <div class="intro-slide-prev intro-slide-btn bi-icon-down" #prev>
+        </div>
+        <div class="intro-slide-next intro-slide-btn bi-icon-down" #next>
+        </div>
+      </div>
+    </div>
+    <div class="g-margin-top20">
+      <img src="../../../../assets/image/personal-analysis-img.jpg" style="width: 250px;" alt="">
+    </div>
+  </div>
+</div>

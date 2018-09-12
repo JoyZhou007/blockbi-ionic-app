@@ -1,0 +1,356 @@
+chat-content-message-post {
+  .post-message {
+    position: relative;
+    margin-top: 10px;
+    clear: both;
+    &.other-message {
+      .user-avatar {
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .user-name {
+        margin-left: 44px;
+        margin-top: 0;
+        height: 20px;
+        span {
+          float: left;
+          &:first-child {
+            color: #4B4C63;
+            font-weight: bold;
+            font-size: 12px;
+          }
+          &.user-state {
+            margin-left: 8px;
+            &:before {
+              font-size: 14px;
+            }
+          }
+          &.message-time {
+            margin-left: 8px;
+            color: #9193AB;
+            font-size: 10px;
+          }
+        }
+      }
+      .file-name {
+        margin-left: 44px;
+        max-width: 100%;
+        height: 15px;
+        span {
+          height: 15px;
+          float: left;
+          display: inline-block;
+          font-size: 11px;
+          color: #9193AB;
+        }
+      }
+      .post-content {
+        clear: both;
+        .message-file {
+          margin-top: 5px;
+          width: 100%;
+          height: 50px;
+          border: 0.5px solid #D0D1DB;
+          .file-icon {
+            float: left;
+            width: 24px;
+            height: 36px;
+            display: inline-block;
+            margin-left: 14px;
+            margin-top: 6px;
+            &.file-icon-word {
+              background: url("/assets/image/icon.png") -217px  -128px no-repeat !important;
+            }
+            &.file-icon-excel {
+              background: url("/assets/image/icon.png") -158px  -128px no-repeat !important;
+            }
+            &.file-icon-other {
+              background: url("/assets/image/icon.png") -415px  -128px no-repeat !important;
+            }
+            &.file-icon-analysis {
+              background: url("/assets/image/icon.png") -116px  -128px no-repeat !important;
+            }
+            &.file-icon-pdf {
+              background: url("/assets/image/icon.png") -342px  -128px no-repeat !important;
+            }
+            &.file-icon-ppt {
+              background: url("/assets/image/icon.png") -279px  -128px no-repeat !important;
+            }
+            &.file-icon-post {
+              width: 36px;
+              background: url("/assets/image/icon.png") -562px  -128px no-repeat !important;
+            }
+          }
+          .file-info {
+            float: left;
+            margin-left: 5px;
+            position: relative;
+            p {
+              text-align: left;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            p:first-child {
+              display: block;
+              height: 20px;
+              color: #414141;
+              font-weight: bold;
+              margin-top: 5px;
+              position: absolute;
+              left: 2px;
+              width: 150px;
+            }
+            p:last-child {
+              display: block;
+              height: 11px;
+              font-size: 9px;
+              color: #757575;
+              line-height: 11px;
+              top: 15px;
+              position: absolute;
+              left: 2px;
+            }
+          }
+        }
+        .post-summary {
+          width: 100%;
+          border: 0.5px solid #D0D1DB;
+          border-top: none;
+          font-size: 12px;
+          color: #4c4b63;
+          span {
+            display: block;
+            padding: 9px 12px;
+            text-align: left;
+          }
+        }
+        .first_attachment{
+          text-align: left;
+          border: 0.5px solid #D0D1DB;
+          border-top:none;
+          img{
+            margin-right: 1px;
+            margin-top: 1px;
+            max-width: 100%;
+          }
+        }
+      }
+      .forward-message-owner {
+        margin-top: 5px;
+        height: 30px;
+        .bi-icon-forward {
+          float: left;
+          margin-top: 5px;
+          margin-left: 20px;
+          &:before {
+            font-size: 10px;
+            color: #9193ab;
+          }
+        }
+        img {
+          width: 26px;
+          height: 26px;
+          border-radius: 4px;
+          margin-left: 10px;
+          float: left;
+        }
+        .user-name {
+          margin-left: 80px;
+        }
+        .file-name {
+          margin-left: 80px;
+        }
+      }
+      .forward-message-text {
+        margin-left: 40px;
+        margin-top: 10px;
+        width: 200px;
+        text-align: left;
+        clear: both;
+        height: 50px;
+        border: 0.5px solid #D0D1DB;
+      }
+    }
+
+    &.self-message {
+      .user-avatar {
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        left: calc(100% - 34px);
+        top: 0;
+        border-radius: 4px;
+      }
+      .user-name {
+        margin-right: 44px;
+        margin-top: 0;
+        height: 20px;
+        span {
+          float: right;
+          &:first-child {
+            color: #4B4C63;
+            font-weight: bold;
+          }
+          &.user-state {
+            margin-right: 8px;
+            &:before {
+              font-size: 14px;
+            }
+          }
+          &.message-time {
+            margin-right: 8px;
+            color: #9193AB;
+            font-size: 10px;
+          }
+        }
+      }
+      .file-name {
+        margin-right: 44px;
+        max-width: 100%;
+        height: 15px;
+        span {
+          height: 15px;
+          float: right;
+          display: inline-block;
+          font-size: 11px;
+          color: #9193AB;
+        }
+      }
+      .post-content {
+        clear: both;
+        .message-file {
+          margin-top: 5px;
+          width: 100%;
+          height: 50px;
+          border: 0.5px solid #D0D1DB;
+          .file-icon {
+            float: right;
+            width: 24px;
+            height: 36px;
+            display: inline-block;
+            margin-right: 14px;
+            margin-top: 6px;
+            &.file-icon-word {
+              background: url("/assets/image/icon.png") -217px  -128px no-repeat !important;
+            }
+            &.file-icon-excel {
+              background: url("/assets/image/icon.png") -158px  -128px no-repeat !important;
+            }
+            &.file-icon-other {
+              background: url("/assets/image/icon.png") -415px  -128px no-repeat !important;
+            }
+            &.file-icon-analysis {
+              background: url("/assets/image/icon.png") -116px  -128px no-repeat !important;
+            }
+            &.file-icon-pdf {
+              background: url("/assets/image/icon.png") -342px  -128px no-repeat !important;
+            }
+            &.file-icon-ppt {
+              background: url("/assets/image/icon.png") -279px  -128px no-repeat !important;
+            }
+            &.file-icon-post {
+              width: 36px;
+              background: url("/assets/image/icon.png") -562px  -128px no-repeat !important;
+            }
+          }
+          .file-info {
+            float: right;
+            margin-right: 5px;
+            position: relative;
+            p {
+              text-align: right;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+            p:first-child {
+              display: block;
+              height: 20px;
+              color: #414141;
+              font-weight: bold;
+              margin-top: 5px;
+              position: absolute;
+              right: 2px;
+              width: 150px;
+            }
+            p:last-child {
+              display: block;
+              height: 11px;
+              font-size: 9px;
+              color: #757575;
+              line-height: 11px;
+              top: 15px;
+              position: absolute;
+              right: 2px;
+            }
+          }
+        }
+        .post-summary {
+          width: 100%;
+          border: 0.5px solid #D0D1DB;
+          border-top: none;
+          font-size: 12px;
+          color: #4c4b63;
+          span {
+            display: block;
+            padding: 9px 12px;
+            text-align: right;
+          }
+        }
+        .first_attachment{
+          text-align: right;
+          border: 0.5px solid #D0D1DB;
+          border-top:none;
+          img{
+            margin-right: 1px;
+            margin-top: 1px;
+            max-width: 100%;
+          }
+        }
+      }
+      .forward-message-owner {
+        margin-top: 5px;
+        height: 30px;
+        .bi-icon-forward {
+          float: right;
+          margin-top: 5px;
+          margin-right: 10px;
+          transform: rotate(180deg);
+          &:before {
+            font-size: 10px;
+            color: #9193ab;
+          }
+        }
+        img {
+          width: 26px;
+          height: 26px;
+          border-radius: 4px;
+          margin-right: 10px;
+          float: right;
+        }
+        .user-name {
+          margin-right: 80px;
+        }
+        .file-name {
+          margin-right: 80px;
+        }
+      }
+      .forward-message-text {
+        margin-left: 40px;
+        margin-top: 10px;
+        width: calc(100% - 80px);
+        text-align: right;
+      }
+    }
+    .post-forward{
+      .message-file{
+        margin-top: 10px !important;
+      }
+    }
+  }
+}

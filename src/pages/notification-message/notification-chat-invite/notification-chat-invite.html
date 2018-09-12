@@ -1,0 +1,19 @@
+<ion-card>
+    <ion-item><span item-end class="bi-icon-remove"></span></ion-item>
+    <div class="notification-ion-title">INVITE NEW TEAM MEMBER</div>
+    <ion-item>
+        <ion-avatar item-start>
+            <img src="{{sendInfo?.user_profile_path? appConfig?.resourceDomain + sendInfo?.user_profile_path :''}}">
+        </ion-avatar>
+        <h2>{{sendInfo?.work_name}}</h2>
+        <p>{{sendInfo?.p_name}}</p>
+    </ion-item>
+    <ion-card-content class="notification-message">
+        <p>MESSAGE</p>
+        <p>{{notificationMessage}}</p>
+    </ion-card-content>
+    <div *ngIf="!notificationData?.handled">
+        <button ion-button class="notification-button-type3" (click)="refuseInvite($event)">REFUSE</button>
+        <button ion-button class="notification-button-type4" (click)="acceptInvite($event)">ACCEPT</button>
+    </div>
+</ion-card>

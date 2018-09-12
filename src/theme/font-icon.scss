@@ -1,0 +1,460 @@
+@charset "UTF-8";
+
+/*==============================================
+
+    Time：2017.10.25
+
+    Explain：字体图标
+
+==============================================*/
+
+//字体存放路径
+$u-f-path: '../assets/icon-font/';
+$iconName: biIcon;
+
+//生成对应字体
+//$f => 字体名称  $n => 字体文件件名
+@mixin f-family($path, $f, $n) {
+  font-family: '#{$f}';
+  //font-family: 'Ionicons';
+  src: url('#{$path}#{$n}.woff') format('woff'),
+  url('#{$path}#{$n}.woff2') format('woff2'),
+  url('#{$path}#{$n}.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+//生成不同的icon类
+@mixin makeIcon($arg, $val, $color, $opacity) {
+  .bi-icon-#{$arg}:before,
+  .ion-ios-bi-icon-#{$arg}:before,
+  .ion-ios-bi-icon-#{$arg}-outline:before,
+  .ion-md-bi-icon-#{$arg}:before,
+  .ion-md-bi-icon-#{$arg}-outline:before {
+    content: $val;
+    font-size: 26px;
+    @if $color != '' {
+      color: $color;
+    }
+    @if $opacity != '' {
+      opacity: $opacity;
+    }
+  }
+}
+
+@mixin makePathIcon($arg, $path, $val, $color, $opacity) {
+  .bi-icon-#{$arg} .path#{$path}:before,
+  .ion-ios-bi-icon-#{$arg} .path#{$path}:before,
+  .ion-ios-bi-icon-#{$arg}-outline .path#{$path}:before,
+  .ion-md-bi-icon-#{$arg} .path#{$path}:before,
+  .ion-md-bi-icon-#{$arg}-outline .path#{$path}:before {
+    content: $val;
+    font-size: 26px;
+    @if $color != '' {
+      color: $color;
+    }
+    @if $opacity != '' {
+      opacity: $opacity;
+    }
+  }
+}
+
+@mixin iconFont($icon) {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: #{$icon} !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  span{
+    position:absolute;
+    left:0;
+    bottom:0;
+  }
+}
+
+@font-face {
+  @include f-family($u-f-path, $iconName, 'bi-icon');
+}
+
+[class^="bi-icon-"], [class*="bi-icon-"],
+[class^="ion-ios-bi-icon-"], [class*="ion-ios-bi-icon-"],
+[class^="ion-md-bi-icon-"], [class*="ion-md-bi-"]{
+  @include iconFont($iconName);
+}
+
+
+@include makeIcon(alarm, '\e900', '', '');
+@include makeIcon(arrow, '\e904', '', '');
+@include makeIcon(arrow1, '\e905', '', '');
+@include makeIcon(assignment, '\e906', '', '');
+@include makeIcon(at, '\e907', '', '');
+@include makeIcon(attendance, '\e908', '', '');
+@include makeIcon(bad, '\e909', '', '');
+@include makeIcon(best1, '\e90e', '', '');
+@include makeIcon(best2, '\e90f', '', '');
+@include makeIcon(calendar, '\e910', '', '');
+@include makeIcon(chat, '\e911', '', '');
+@include makeIcon(check, '\e912', #8ee3f5, '');
+@include makeIcon(close, '\e913', '', '');
+@include makeIcon(close1, '\e914', '', '');
+@include makeIcon(close-light, '\e915', '', '');
+@include makeIcon(combined-shape, '\e916', '', '');
+@include makeIcon(comments, '\e917', '', '');
+@include makeIcon(delete, '\e918', '', '');
+@include makeIcon(down, '\e919', '', '');
+@include makeIcon(edit, '\e91a', '', '');
+@include makeIcon(esc, '\e91b', '', '');
+@include makeIcon(folder, '\e91c', '', '');
+@include makeIcon(forward, '\e91d', '', '');
+@include makeIcon(good, '\e91e', '', '');
+@include makeIcon(homepage, '\e92a', '', '');
+@include makeIcon(in-common, '\e92b', '', '');
+@include makeIcon(like, '\e92c', #ababab, '');
+@include makeIcon(location, '\e92d', '', '');
+@include makeIcon(logo, '\e92e', '', '');
+@include makeIcon(meh1, '\e95d', '', '');
+@include makeIcon(mission-m, '\e95e', '', '');
+@include makeIcon(more, '\e967', '', '');
+@include makeIcon(new, '\e968', '', '');
+@include makeIcon(open, '\e969', '', '');
+@include makeIcon(open-light, '\e96a', '', '');
+@include makeIcon(paper-plane, '\e96b', #5e66d1, '');
+@include makeIcon(pin, '\e96c', '', '');
+@include makeIcon(prior, '\e96d', #98d2eb, '');
+@include makeIcon(remove, '\e96e', #ee1a1a, '');
+@include makeIcon(search, '\e96f', '', '');
+@include makeIcon(time, '\e972', #5e66d1, '');
+@include makeIcon(too-bad, '\e973', '', '');
+@include makeIcon(vacation, '\e974', #7b7a8a, '');
+@include makeIcon(workhour, '\e977', #7b7a8a, '');
+
+@include makeIcon(active-tab, '\e978', '', '');
+@include makeIcon(application-of-leave, '\e979', '', '');
+@include makeIcon(arrive, '\e97a', #adcba9, '');
+@include makeIcon(arrow2, '\e97b', '', '');
+@include makeIcon(arrow3, '\e97c', '', '');
+@include makeIcon(attendacne-code, '\e97d', '', '');
+@include makeIcon(attention, '\e982', '', '');
+@include makeIcon(bell, '\e983', '', '');
+@include makeIcon(bidding, '\e984', '', '');
+@include makeIcon(business, '\e985', '', '');
+@include makeIcon(business1, '\e986', #a4a6ba, '');
+@include makeIcon(business-analysis, '\e987', '', '');
+@include makeIcon(business-function, '\e988', '', '');
+@include makeIcon(business-profile, '\e989', '', '');
+@include makeIcon(camera, '\e99c', '', '');
+@include makeIcon(channel, '\e99d', '', '');
+@include makeIcon(chat, '\e99e', '', '');
+@include makeIcon(clocking-in, '\e99f', '', '');
+@include makeIcon(combined-shape, '\e9a0', '', '');
+@include makeIcon(comments, '\e9a1', #7e7f88, '');
+@include makeIcon(company, '\e9a2', #b2a1bd, '');
+@include makeIcon(connect, '\e9a3', #a4a6ba, '');
+@include makeIcon(contact-add, '\e9a4', #d2b0f0, '');
+@include makeIcon(contact-add1, '\e9a5', #d2b0f0, '');
+@include makeIcon(contact-list, '\e9a6', '', '');
+@include makeIcon(cooperator, '\e9a7', '', '');
+@include makeIcon(copy, '\e9a8', '', '');
+@include makeIcon(create-business, '\e9a9', '', '');
+@include makeIcon(doing, '\e9aa', '', '');
+@include makeIcon(done, '\e9ab', '', '');
+@include makeIcon(download, '\e9ac', '', '');
+@include makeIcon(drafts, '\e9ad', '', '');
+@include makeIcon(dtarred, '\e9ae', #a4a6ba, '');
+@include makeIcon(edit-room, '\e9af', '', '');
+@include makeIcon(expense, '\e9b0', '', '');
+@include makeIcon(fixed-time, '\e9b1', #a4a6ba, '');
+@include makeIcon(friend, '\e9b2', #a4a6ba, '');
+@include makeIcon(from-contacts, '\e9b3', #67d44e, '');
+@include makeIcon(general, '\e9b4', '', '');
+@include makeIcon(group2, '\e9b5', '', '');
+@include makeIcon(group3, '\e9b6', #d8d9ef, '');
+@include makeIcon(hire, '\e9b7', #a4a6ba, '');
+@include makeIcon(import-files, '\e9b8', '', '');
+@include makeIcon(in-common, '\e9b9', #a4a6ba, '');
+@include makeIcon(in-private, '\e9d0', '', '');
+@include makeIcon(in-system, '\e9d1', #a4a6ba, '');
+@include makeIcon(internal, '\e9d2', #a4a6ba, '');
+@include makeIcon(introduction, '\e9d3', '', '');
+@include makeIcon(invite-people, '\e9d4', '', '');
+@include makeIcon(language, '\e9e8', '', '');
+@include makeIcon(leave, '\e9e9', #86d7d2, '');
+@include makeIcon(location, '\e9ea', #d8d9ef, '');
+@include makeIcon(lock, '\e9eb', #979797, '');
+@include makeIcon(memo, '\e9ee', '', '');
+@include makeIcon(mission, '\e9f1', #a4a6ba, '');
+@include makeIcon(move, '\e9f2', '', '');
+@include makeIcon(new-application, '\e9f3', '', '');
+@include makeIcon(new-assignment, '\e9f4', '', '');
+@include makeIcon(new-chat-channel, '\e9f5', '', '');
+@include makeIcon(new-education, '\e9f6', '', '');
+@include makeIcon(new-experience, '\e9f7', '', '');
+@include makeIcon(new-folder, '\e9f8', '', '');
+@include makeIcon(new-hoilday, '\e9f9', '', '');
+@include makeIcon(new-meeting, '\e9fa', '', '');
+@include makeIcon(new-post, '\e9fb', '', '');
+@include makeIcon(new-project, '\e9fc', '', '');
+@include makeIcon(new-task, '\e9fd', '', '');
+@include makeIcon(new-tips, '\e9fe', '', '');
+@include makeIcon(tips, '\ea5c', '', '');
+@include makeIcon(next, '\e9ff', '', '');
+@include makeIcon(no-entry, '\ea00', '', '');
+@include makeIcon(occupation, '\ea01', '', '');
+@include makeIcon(out-of-office, '\ea19', '', '');
+@include makeIcon(participant, '\ea1a', '', '');
+@include makeIcon(periodicity, '\ea1b', '', '');
+@include makeIcon(permission, '\ea1c', #a4a6ba, '');
+@include makeIcon(personal, '\ea1d', #a4a6ba, '');
+@include makeIcon(personal-analysis, '\ea1e', '', '');
+@include makeIcon(personal-profile, '\ea1f', '', '');
+@include makeIcon(pic, '\ea20', #d8d9ef, '');
+@include makeIcon(pin1, '\ea21', '', '');
+@include makeIcon(priority-level, '\ea22', '', '');
+@include makeIcon(recent, '\ea23', #a4a6ba, '');
+@include makeIcon(recommend, '\ea24', #a4a6ba, '');
+@include makeIcon(relation, '\ea25', #a4a6ba, '');
+@include makeIcon(remind, '\ea26', '', '');
+@include makeIcon(resume, '\ea27', '', '');
+@include makeIcon(setting, '\ea28', '', '');
+@include makeIcon(set-vacation, '\ea29', '', '');
+@include makeIcon(shape, '\ea2a', '', '');
+@include makeIcon(shape1, '\ea2b', #9320f8, '');
+@include makeIcon(share, '\ea2c', '', '');
+@include makeIcon(share-a-link, '\ea2d', #af508b, '');
+@include makeIcon(share-to, '\ea2e', #e2e2e9, '');
+@include makeIcon(smile, '\ea2f', #7e7f88, '');
+@include makeIcon(spa-alien, '\ea42', #a7c275, '');
+@include makeIcon(spa-dalek, '\ea4a', #ba8d8d, '');
+@include makeIcon(spa-darth-vader, '\ea4b', #d0bb8c, '');
+@include makeIcon(spa-death-star-2, '\ea4c', #417fcd, '');
+@include makeIcon(spa-earth, '\ea4d', #94d9cc, '');
+@include makeIcon(spa-enterprise, '\ea4e', #c36e6e, '');
+@include makeIcon(spa-helmet, '\ea4f', #7d929d, '');
+@include makeIcon(spa-launch, '\ea50', #7d4063, '');
+@include makeIcon(spa-observatory, '\ea51', #ac7dd8, '');
+@include makeIcon(spa-ray-gun, '\ea52', #4f4077, '');
+@include makeIcon(spa-rover, '\ea53', #de4c4c, '');
+@include makeIcon(spa-telescope, '\ea54', #777ea6, '');
+@include makeIcon(staff-manager, '\ea55', #a4a6ba, '');
+@include makeIcon(studio, '\ea5a', '', '');
+@include makeIcon(target, '\ea5b', '', '');
+@include makeIcon(to-do, '\ea5d', '', '');
+@include makeIcon(track, '\ea5e', '', '');
+@include makeIcon(transfer, '\ea5f', '', '');
+@include makeIcon(tv, '\ea61', '', '');
+
+
+
+@include makePathIcon(approval, 1, '\e901', rgb(152, 204, 253), '');
+@include makePathIcon(approval, 2, '\e902', rgb(71, 136, 199), '');
+@include makePathIcon(approval, 3, '\e903', '', '');
+@include makePathIcon(bad1, 1, '\e90a', rgb(12, 189, 207), '');
+@include makePathIcon(bad1, 2, '\e90b', rgb(145, 147, 171), '');
+@include makePathIcon(best, 1, '\e90c', rgb(181, 225, 26), '');
+@include makePathIcon(best, 2, '\e90d', rgb(145, 147, 171), '');
+@include makePathIcon(good1, 1, '\e91f', rgb(124, 213, 9), '');
+@include makePathIcon(good1, 2, '\e920', rgb(145, 147, 171), '');
+@include makePathIcon(group, 1, '\e921', rgb(148, 147, 150), 0.5);
+@include makePathIcon(group, 2, '\e922', rgb(148, 147, 150), '');
+@include makePathIcon(group, 3, '\e923', rgb(250, 250, 250), 0.5);
+@include makePathIcon(group, 4, '\e924', rgb(148, 147, 150), '');
+@include makePathIcon(group1, 1, '\e925', rgb(172, 201, 198), '');
+@include makePathIcon(group1, 2, '\e926', rgb(255, 255, 255), '');
+@include makePathIcon(group1, 3, '\e927', rgb(76, 75, 99), '');
+@include makePathIcon(group1, 4, '\e928', rgb(76, 75, 99), '');
+@include makePathIcon(group1, 5, '\e929', rgb(76, 75, 99), '');
+@include makePathIcon(meh, 1, '\e95b', rgb(145, 147, 171), '');
+@include makePathIcon(meh, 2, '\\e95c', rgb(17, 220, 164), '');
+@include makePathIcon(money-transfer, 1, '\e95f', rgb(223, 240, 254), '');
+@include makePathIcon(money-transfer, 2, '\e960', rgb(71, 136, 199), '');
+@include makePathIcon(money-transfer, 3, '\e961', rgb(182, 220, 254), '');
+@include makePathIcon(money-transfer, 4, '\e962', rgb(152, 204, 253), '');
+@include makePathIcon(money-transfer, 5, '\e963', rgb(71, 136, 199), '');
+@include makePathIcon(money-transfer, 6, '\e964', rgb(255, 255, 255), '');
+@include makePathIcon(money-transfer, 7, '\e965', rgb(255, 255, 255), '');
+@include makePathIcon(money-transfer, 8, '\e966', rgb(71, 136, 199), '');
+@include makePathIcon(select, 1, '\e970', rgb(171, 171, 171), '');
+@include makePathIcon(select, 2, '\e971', rgb(123, 122, 138), '');
+@include makePathIcon(very-bad, 1, '\e975', rgb(33, 152, 208), '');
+@include makePathIcon(very-bad, 2, '\e976', rgb(145, 147, 171), '');
+@include makePathIcon(vacation, 1, '\ea62', rgb(34, 34, 34), '');
+@include makePathIcon(vacation, 2, '\ea63', rgb(34, 34, 34), '');
+@include makePathIcon(vacation, 3, '\ea64', rgb(54, 215, 183), '');
+@include makePathIcon(vacation, 4, '\ea65', rgb(21, 63, 56), '');
+@include makePathIcon(vacation, 5, '\ea66', rgb(43, 173, 148), '');
+@include makePathIcon(vacation, 6, '\ea67', rgb(21, 63, 56), '');
+@include makePathIcon(vacation, 7, '\ea68', rgb(170, 133, 102), '');
+@include makePathIcon(vacation, 8, '\ea69', rgb(56, 49, 40), '');
+@include makePathIcon(vacation1, 1, '\ea6a', rgb(233, 234, 251), '');
+@include makePathIcon(vacation1, 2, '\ea6b', rgb(200, 201, 213), '');
+@include makePathIcon(staff-manager1, 1, '\ea56', rgb(200, 201, 213), '');
+@include makePathIcon(staff-manager1, 2, '\ea57', rgb(200, 201, 213), '');
+@include makePathIcon(staff-manager1, 3, '\ea58', rgb(233, 234, 251), '');
+@include makePathIcon(staff-manager1, 4, '\ea59', rgb(200, 201, 213), '');
+@include makePathIcon(space-control, 1, '\ea43', rgb(200, 201, 213), '');
+@include makePathIcon(space-control, 2, '\ea44', rgb(233, 234, 251), '');
+@include makePathIcon(space-control, 3, '\ea45', rgb(233, 234, 251), '');
+@include makePathIcon(space-control, 4, '\ea46', rgb(233, 234, 251), '');
+@include makePathIcon(space-control, 5, '\ea47', rgb(233, 234, 251), '');
+@include makePathIcon(space-control, 6, '\ea48', rgb(255, 255, 255), '');
+@include makePathIcon(space-control, 7, '\ea49', rgb(200, 201, 213), '');
+@include makePathIcon(snail, 1, '\ea30', rgb(121, 85, 72), '');
+@include makePathIcon(snail, 2, '\ea31', transparent, '');
+@include makePathIcon(snail, 3, '\ea32', transparent, '');
+@include makePathIcon(snail, 4, '\ea33', rgb(93, 64, 55), '');
+@include makePathIcon(snail, 5, '\ea34', rgb(93, 64, 55), '');
+@include makePathIcon(snail, 6, '\ea35', rgb(188, 170, 164), '');
+@include makePathIcon(snail, 7, '\ea36', rgb(78, 52, 46), '');
+@include makePathIcon(snail, 8, '\ea37', rgb(255, 152, 0), '');
+@include makePathIcon(snail, 9, '\ea38', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 10, '\ea39', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 11, '\ea3a', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 12, '\ea3b', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 13, '\ea3c', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 14, '\ea3d', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 15, '\ea3e', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 16, '\ea3f', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 17, '\ea40', rgb(255, 183, 77), '');
+@include makePathIcon(snail, 18, '\ea41', rgb(206, 99, 11), '');
+@include makePathIcon(octopus, 1, '\ea02', rgb(103, 58, 183), '');
+@include makePathIcon(octopus, 2, '\ea03', rgb(103, 58, 183), '');
+@include makePathIcon(octopus, 3, '\ea04', rgb(103, 58, 183), '');
+@include makePathIcon(octopus, 4, '\ea05', rgb(103, 58, 183), '');
+@include makePathIcon(octopus, 5, '\ea06', rgb(103, 58, 183), '');
+@include makePathIcon(octopus, 6, '\ea07', rgb(103, 58, 183), '');
+@include makePathIcon(octopus, 7, '\ea08', rgb(126, 87, 194), '');
+@include makePathIcon(octopus, 8, '\ea09', rgb(126, 87, 194), '');
+@include makePathIcon(octopus, 9, '\ea0a', rgb(126, 87, 194), '');
+@include makePathIcon(octopus, 10, '\ea0b', rgb(126, 87, 194), '');
+@include makePathIcon(octopus, 11, '\ea0c', rgb(179, 157, 219), '');
+@include makePathIcon(octopus, 12, '\ea0d', rgb(179, 157, 219), '');
+@include makePathIcon(octopus, 13, '\ea0e', rgb(179, 157, 219), '');
+@include makePathIcon(octopus, 14, '\ea0f', rgb(255, 235, 59), '');
+@include makePathIcon(octopus, 15, '\ea10', rgb(255, 235, 59), '');
+@include makePathIcon(octopus, 16, '\ea11', rgb(49, 27, 146), '');
+@include makePathIcon(octopus, 17, '\ea12', rgb(255, 235, 59), '');
+@include makePathIcon(octopus, 18, '\ea13', rgb(255, 235, 59), '');
+@include makePathIcon(octopus, 19, '\ea14', rgb(38, 50, 56), '');
+@include makePathIcon(octopus, 20, '\ea15', rgb(38, 50, 56), '');
+@include makePathIcon(octopus, 21, '\ea16', rgb(255, 128, 171), '');
+@include makePathIcon(octopus, 22, '\ea17', rgb(255, 128, 171), '');
+@include makePathIcon(octopus, 23, '\ea18', rgb(255, 128, 171), '');
+@include makePathIcon(in-work, 1, '\e9d5', rgb(170, 133, 102), '');
+@include makePathIcon(in-work, 2, '\e9d6', rgb(56, 49, 40), '');
+@include makePathIcon(in-work, 3, '\e9d7', rgb(56, 49, 40), '');
+@include makePathIcon(in-work, 4, '\e9d8', rgb(56, 49, 40), '');
+@include makePathIcon(in-work, 5, '\e9d9', rgb(35, 46, 56), '');
+@include makePathIcon(in-work, 6, '\e9da', rgb(118, 208, 59), '');
+@include makePathIcon(in-work, 7, '\e9db', rgb(239, 220, 210), '');
+@include makePathIcon(in-work, 8, '\e9dc', rgb(118, 208, 59), '');
+@include makePathIcon(in-work, 9, '\e9dd', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 10, '\e9de', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 11, '\e9df', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 12, '\e9e0', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 13, '\e9e1', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 14, '\e9e2', rgb(118, 208, 59), '');
+@include makePathIcon(in-work, 15, '\e9e3', rgb(118, 208, 59), '');
+@include makePathIcon(in-work, 16, '\e9e4', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 17, '\e9e5', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 18, '\e9e6', rgb(43, 63, 21), '');
+@include makePathIcon(in-work, 19, '\e9e7', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 1, '\e9ba', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 2, '\e9bb', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 3, '\e9bc', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 4, '\e9bd', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 5, '\e9be', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 6, '\e9bf', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 7, '\e9c0', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 8, '\e9c1', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 9, '\e9c2', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 10, '\e9c3', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 11, '\e9c4', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 12, '\e9c5', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 13, '\e9c6', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 14, '\e9c7', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 15, '\e9c8', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 16, '\e9c9', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 17, '\e9ca', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 18, '\e9cb', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 19, '\e9cc', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 20, '\e9cd', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 21, '\e9ce', rgb(43, 63, 21), '');
+@include makePathIcon(in-meeting, 22, '\e9cf', rgb(43, 63, 21), '');
+@include makePathIcon(business-travel, 1, '\e98a', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 2, '\e98b', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 3, '\e98c', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 4, '\e98d', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 5, '\e98e', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 6, '\e98f', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 7, '\e990', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 8, '\e991', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 9, '\e992', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 10, '\e993', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 11, '\e994', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 12, '\e995', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 13, '\e996', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 14, '\e997', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 15, '\e998', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 16, '\e999', rgb(218, 227, 230), '');
+@include makePathIcon(business-travel, 17, '\e99a', rgb(35, 46, 56), '');
+@include makePathIcon(business-travel, 18, '\e99b', rgb(35, 46, 56), '');
+@include makePathIcon(attendance1, 1, '\e97e', rgb(233, 234, 251), '');
+@include makePathIcon(attendance1, 2, '\e97f', rgb(200, 201, 213), '');
+@include makePathIcon(attendance1, 3, '\e980', rgb(233, 234, 251), '');
+@include makePathIcon(attendance1, 14, '\e981', rgb(200, 201, 213), '');
+@include makePathIcon(meeting-room, 1, '\e9ec', rgb(233, 234, 251), '');
+@include makePathIcon(meeting-room, 2, '\e9ed', rgb(200, 201, 213), '');
+@include makePathIcon(message, 1, '\e9ef', rgb(94, 102, 209), 0.125);
+@include makePathIcon(message, 1, '\e9f0', rgb(225, 227, 255), '');
+
+//@include makePathIcon(man, 1, '\e92f', rgb(90, 97, 102), '');
+//@include makePathIcon(man, 2, '\e930', rgb(92, 85, 85), '');
+//@include makePathIcon(man, 3, '\e931', rgb(92, 85, 85), '');
+//@include makePathIcon(man, 4, '\e932', rgb(249, 168, 138), '');
+//@include makePathIcon(man, 5, '\e933', rgb(241, 156, 139), '');
+//@include makePathIcon(man, 6, '\e934', rgb(246, 190, 162), '');
+//@include makePathIcon(man, 7, '\e935', rgb(252, 178, 152), '');
+//@include makePathIcon(man, 8, '\e936', rgb(243, 191, 164), '');
+//@include makePathIcon(man, 9, '\e937', rgb(243, 191, 164), '');
+//@include makePathIcon(man, 10, '\e938', rgb(238, 162, 141), '');
+//@include makePathIcon(man, 11, '\e939', rgb(239, 177, 152), '');
+//@include makePathIcon(man, 12, '\e93a', rgb(72, 54, 46), '');
+//@include makePathIcon(man, 13, '\e93b', rgb(72, 54, 46), '');
+//@include makePathIcon(man, 14, '\e93c', rgb(72, 54, 46), '');
+//@include makePathIcon(man, 15, '\e93d', rgb(66, 49, 43), '');
+//@include makePathIcon(man, 16, '\e93e', rgb(60, 45, 41), '');
+//@include makePathIcon(man, 17, '\e93f', rgb(79, 49, 37), '');
+//@include makePathIcon(man, 18, '\e940', rgb(79, 49, 37), '');
+//@include makePathIcon(man, 19, '\e941', rgb(79, 49, 37), '');
+//@include makePathIcon(man, 20, '\e942', rgb(78, 84, 92), '');
+//@include makePathIcon(man, 21, '\e943', rgb(83, 90, 94), '');
+//@include makePathIcon(man, 22, '\e944', rgb(83, 90, 94), '');
+//@include makePathIcon(man, 23, '\e945', rgb(78, 84, 92), '');
+//@include makePathIcon(man, 24, '\e946', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 25, '\e947', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 26, '\e948', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 27, '\e949', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 28, '\e94a', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 29, '\e94b', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 30, '\e94c', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 31, '\e94d', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 32, '\e94e', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 33, '\e94f', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 34, '\e950', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 35, '\e951', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 36, '\e952', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 37, '\e953', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 38, '\e954', rgb(138, 117, 115), '');
+//@include makePathIcon(man, 39, '\e955', rgb(70, 53, 48), '');
+//@include makePathIcon(man, 40, '\e956', rgb(100, 118, 129), '');
+//@include makePathIcon(man, 41, '\e957', rgb(0, 0, 0), 0.15);
+//@include makePathIcon(man, 42, '\e958', rgb(0, 0, 0), 0.2);
+//@include makePathIcon(man, 43, '\e959', rgb(100, 118, 129), '');
+//@include makePathIcon(man, 44, '\e95a', rgb(0, 0, 0), 0.2);
+

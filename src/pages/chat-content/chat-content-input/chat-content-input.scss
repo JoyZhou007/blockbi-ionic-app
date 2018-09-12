@@ -1,0 +1,133 @@
+chat-content-input {
+  .chat-content-footer {
+    border-top: 0.55px solid #ddd;
+    background: #ffffff;
+    height: 70px;
+    &.show_more {
+      height: 120px !important;
+      .chat-at-list {
+        bottom: 125px !important;
+      }
+    }
+    textarea {
+      height: 40px;
+      margin-left: 19px;
+      width: calc(100% - 70px);
+      border: none;
+      padding-top: 5px;
+      float: left;
+    }
+    .send-message {
+      float: left;
+      font-size: 14px;
+      color: #6c72EA;
+      margin-top: 10px;
+      margin-left: 5px;
+    }
+
+    .footer-function-top {
+      margin-top: 10px;
+      clear: both;
+      .footer-function-icons {
+        height: 20px;
+        width: calc(100% - 120px);
+        float: left;
+        display: flex;
+        span {
+          width: 20px;
+          height: 20px;
+          flex: 1;
+          margin-left: 20px;
+          &:before {
+            color: #d8d9ef;
+            font-size: 17px;
+          }
+        }
+      }
+      .function-speak {
+        float: right;
+        margin-right:20px;
+        width: 100px;
+        height: 20px;
+        border: 1px solid #d8d9ef;
+        color: #d8d9ef;
+        font-size: 17px;
+        border-radius: 2px;
+        .bi-icon-attention {
+          float: left;
+          width: 20px;
+          &:before {
+            color: #d8d9ef;
+            font-size: 17px;
+          }
+        }
+        .function-text {
+          float: left;
+          width: 70px;
+          margin-left: 5px;
+          font-weight: normal;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .footer-function-bottom {
+      height: 20px;
+      margin-top: 26px;
+      width: calc(100% - 120px);
+      float: left;
+      display: flex;
+      span {
+        width: 20px;
+        height: 20px;
+        flex: 1;
+        margin-left: 20px;
+        &:before {
+          color: #d8d9ef;
+          font-size: 17px;
+        }
+      }
+    }
+
+    .chat-at-list {
+      width: calc(100% - 30px);
+      margin-left: 10px;
+      background: #ffffff;
+      position: fixed;
+      bottom: 75px;
+      left: 0;
+      box-shadow: 0 3px 3px rgba(26, 26, 26, .1),
+      0 3px 3px rgba(26, 26, 26, .1),
+      0 -1px 3px rgba(26, 26, 26, .3),
+      0 3px 3px rgba(26, 26, 26, .1);
+      ul {
+        width: 100%;
+        padding: 0;
+      }
+      button {
+        width: 100%;
+        background: none;
+      }
+      li {
+        list-style: none;
+        height: 30px;
+        margin-left: 5px;
+        margin-top: 5px;
+        img {
+          width: 20px;
+          height: 20px;
+          border-radius: 2px;
+          float: left;
+          margin: 5px;
+        }
+        span {
+          float: left;
+          margin-top: 5px;
+          font-size: 9px;
+          color: #7B7A8A;
+        }
+      }
+    }
+  }
+
+}

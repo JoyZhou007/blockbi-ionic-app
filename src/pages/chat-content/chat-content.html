@@ -1,0 +1,120 @@
+<ion-header>
+    <ion-navbar class="chat-content-header">
+        <span class="bi-icon-arrow" navPop></span>
+        <span *ngIf="!isFriend">
+          <span *ngIf="isMission" class="channel-icon icon-mission">M</span>
+          <span *ngIf="chatMenuItem?.form == 1" class="channel-icon icon-private">P</span>
+          <span *ngIf="chatMenuItem?.form == 2 && !isMission" class="channel-icon icon-business">B</span>
+        </span>
+        <div class="channel-text" *ngIf="!isFriend">
+            <span class="channel-name">{{chatChannelInfo?.name}}</span>
+            <p class="channel-topic">{{chatChannelInfo?.topic}}</p>
+        </div>
+        <img src="{{chatMenuItem?.user_profile_path? appConfig?.resourceDomain + chatMenuItem?.user_profile_path : ''}}"
+             *ngIf="isFriend">
+        <div class="channel-text" *ngIf="isFriend">
+            <span class="channel-name">{{chatChannelInfo?.work_name?chatChannelInfo?.work_name:''}}</span>
+            <p class="channel-topic">{{chatChannelInfo?.p_name?chatChannelInfo?.p_name:''}}</p>
+        </div>
+        <span class="bi-icon-combined-shape2"></span>
+        <span class="bi-icon-more" (click)="showMoreChannelInfo($event)"></span>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding #chatMessageContent>
+    <ion-refresher (ionRefresh)="doRefresh($event)" *ngIf="hasMoreHistoryMessage">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="Loading more...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div no-lines *ngFor="let message of currentMessageArray"
+         (click)="clickOnMessage($event,message)">
+        <chat-content-message-img
+                [setMessage]=message
+                *ngIf="message.type == chatConfig.CHAT_MESSAGE_TYPE_IMG">
+        </chat-content-message-img>
+
+        <chat-content-message-post
+                [setMessage]=message
+                *ngIf="message.type == chatConfig.CHAT_MESSAGE_TYPE_POST">
+        </chat-content-message-post>
+
+        <chat-content-message-text
+                [setMessage]=message
+                [setChannelInfo]=chatChannelInfo
+                [setAllUserInfo]=allMessageOwnerInfo
+                *ngIf="message.type == chatConfig.CHAT_MESSAGE_TYPE_TEXT">
+        </chat-content-message-text>
+
+        <chat-content-message-file
+                [setMessage]=message
+                *ngIf="message.type == chatConfig.CHAT_MESSAGE_TYPE_FILE">
+        </chat-content-message-file>
+
+        <chat-content-message-system
+                [setMessage]=message
+                *ngIf="message.type == chatConfig.CHAT_MESSAGE_TYPE_SYSTEM">
+        </chat-content-message-system>
+
+        <div *ngIf="message.type == chatConfig.CHAT_MESSAGE_TYPE_FORWARD">
+            <chat-content-message-text
+                    [setMessage]=message
+                    [setAllUserInfo]=allMessageOwnerInfo
+                    [setChannelInfo]=chatChannelInfo
+                    [setIsForward]=true
+                    *ngIf="message?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_TEXT">
+            </chat-content-message-text>
+            <chat-content-message-img
+                    [setMessage]=message
+                    [setAllUserInfo]=allMessageOwnerInfo
+                    [setIsForward]=true
+                    *ngIf="message?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_IMG">
+            </chat-content-message-img>
+            <chat-content-message-file
+                    [setMessage]=message
+                    [setAllUserInfo]=allMessageOwnerInfo
+                    [setIsForward]=true
+                    *ngIf="message?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_FILE">
+            </chat-content-message-file>
+            <chat-content-message-post
+                    [setMessage]=message
+                    [setAllUserInfo]=allMessageOwnerInfo
+                    [setIsForward]=true
+                    *ngIf="message?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_POST">
+            </chat-content-message-post>
+        </div>
+
+        <div *ngIf="message.type == chatConfig.CHAT_MESSAGE_TYPE_SHARE">
+            <chat-content-message-img
+                    [setMessage]=message
+                    [setAllUserInfo]=allMessageOwnerInfo
+                    [setIsShare]=true
+                    *ngIf="message?.detail?.share_file_type == chatConfig.CHAT_MESSAGE_TYPE_IMG">
+            </chat-content-message-img>
+            <chat-content-message-file
+                    [setMessage]=message
+                    [setAllUserInfo]=allMessageOwnerInfo
+                    [setIsShare]=true
+                    *ngIf="message?.detail?.share_file_type == chatConfig.CHAT_MESSAGE_TYPE_FILE">
+            </chat-content-message-file>
+            <chat-content-message-post
+                    [setMessage]=message
+                    [setAllUserInfo]=allMessageOwnerInfo
+                    [setIsShare]=true
+                    *ngIf="message?.detail?.share_file_type == chatConfig.CHAT_MESSAGE_TYPE_POST">
+            </chat-content-message-post>
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <chat-content-input
+            #chatMessageInput
+            [setIsFriend]=isFriend
+            [setChannelInfo]=chatChannelInfo
+            (outSendMessage)="sendMessage($event)">
+    </chat-content-input>
+</ion-footer>

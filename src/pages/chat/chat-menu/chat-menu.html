@@ -1,0 +1,25 @@
+<!-- Generated template for the ChatMenuComponent component -->
+<div class="chat-menu">
+    <ion-slides #slides slidesPerView="{{slideActiveNum}}" *ngIf="slideActiveNum > 3" class="chat-menu-header">
+        <ion-slide  class="ion-slide" margin-right *ngFor="let channel of chatMenuList;let i = index" (click)="switchChannel(i)">
+            <ion-icon name="star-outline"></ion-icon>
+            {{channel.channelType}}
+        </ion-slide>
+    </ion-slides>
+
+    <div margin-top class="g-list54">
+        <ion-list >
+            <ion-item *ngFor="let channel of currentTypeChannelList;let i = index"
+                      (click)="openChanelByMenu(channel)"
+                      class="group-list" no-padding>
+                    <img  class="g-user-profile34" src="{{appConfig.resourceDomain + channel.user_profile_path}}" *ngIf="channel.uid">
+                    <p class="icon-mission" *ngIf="!channel.uid && channel.is_mission == 1 ">M</p>
+                    <p class="icon-private" *ngIf="!channel.uid && channel.is_mission == 0 && channel.form == 1">P</p>
+                    <p class="icon-business" *ngIf="!channel.uid && channel.is_mission == 0 && channel.form == 2">B</p>
+                <h2 margin-left>{{channel.name}}</h2>
+            </ion-item>
+        </ion-list>
+    </div>
+
+
+</div>

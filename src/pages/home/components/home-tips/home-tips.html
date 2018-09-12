@@ -1,0 +1,97 @@
+<!-- Generated template for the HomeTipsComponent component -->
+
+<ion-list>
+    <div *ngFor="let tips of tipsList;let i = index">
+        <ion-card class="tips-item" *ngIf="tips.hasOwnProperty('form')" (click)="onClickTips($event,i)">
+            <!--tips start-->
+            <div class="clearfix">
+                <ion-item>
+                    <ion-avatar class="tip-owner-profile" item-start (click)="openProfileDetail($event,tips,'owner')">
+                        <img class="g-user-profile36" src="{{config.resourceDomain}}{{tips.ownerInfo && tips.ownerInfo.user_profile_path}}">
+                    </ion-avatar>
+                    <p class="f15-f">{{tips.content}}</p>
+                    <p>
+                        <span class="bi-icon-tips home-tips-icon"></span>
+                        <span class="tips-title f5-f2">Tips</span>
+                        <span class="tips-title f5-f2">{{tips.createDetailTime}}</span>
+                    </p>
+                </ion-item>
+                <!--share to-->
+                <ion-item *ngIf="tips.couldEdit">
+                    <ion-row>
+                        <p class="f9-f2 g-margin-bottom5">SHARE TO</p>
+                    </ion-row>
+                    <ion-row>
+                        <div *ngFor="let share of tips.sharedToInfoList" class="g-margin-right10">
+                            <img class="g-user-profile20" src="{{config.resourceDomain}}{{share?.user_profile_path}}" alt=""
+                                 title="{{share?.work_name}}" (click)="openProfileDetail($event,share)">
+                        </div>
+                    </ion-row>
+                    <div *ngIf="(tips.sharedToInfoList && tips.sharedToInfoList.length === 0) || !tips.sharedToInfoList">
+                        <span class="bi-icon-share-to"></span>
+                        <span class="tips-no-share f9-f3">NO ONE</span>
+                    </div>
+                </ion-item>
+            </div>
+            <!--tips end-->
+        </ion-card>
+        <ion-card class="tips-item g-mission-time" *ngIf="!tips.hasOwnProperty('form')" (click)="onClickTips($event,i)">
+            <!--mission start-->
+            <ion-item class="tips-detail-user">
+                <ion-avatar item-start (click)="openProfileDetail($event,tips,'mission')">
+                    <img class="g-user-profile34" src="{{config.resourceDomain}}{{tips.creator_info && tips.creator_info.user_info
+                    &&  tips.creator_info.user_info.user_profile_path}}">
+                </ion-avatar>
+                <p class="f19-f g-color-b8-c">{{tips.name}}</p>
+                <p class="f3-f">
+                    <ion-icon name="thumbs-up"></ion-icon>
+                    <span class="tips-title">{{tips.missionStatus}}</span>
+                    <span class="tips-title">{{tips.createDetailTime}}</span>
+                </p>
+            </ion-item>
+            <ion-item class="progress-item">
+                <!--mission 进度条-->
+                <div class="clearfix">
+                    <bi-mission-progress class="mission-progress" [eleData]="tips"></bi-mission-progress>
+                </div>
+                <ion-row>
+                    <ion-col left>
+                        <p class="f13-f">Begin it from</p>
+                        <h2 class="time-day f49-f">{{tips.startShow.day}}</h2>
+                        <div class="time-hour">
+                            <p class="f32-f">{{tips.startShow.month}}</p>
+                            <p class="f27-f">{{tips.startShow.hour}}</p>
+                        </div>
+                    </ion-col>
+                    <div text-center class="time-icon">
+                        <span class="bi-icon-arrow3"></span>
+                    </div>
+                    <ion-col right>
+                        <p class="f13-f">End</p>
+                        <div *ngIf="!tips.endIsPending">
+                            <h2 class="time-day f49-f">{{tips.endShow.day}}</h2>
+                            <div class="time-hour">
+                                <p class="f32-f">{{tips.endShow.month}}</p>
+                                <p class="f27-f">{{tips.endShow.hour}}</p>
+                            </div>
+                        </div>
+                        <div *ngIf="tips.endIsPending">
+                            PENDING
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </ion-item>
+            <!--mission end-->
+        </ion-card>
+    </div>
+    <!--下拉加载-->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                     loadingText="Loading more data...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-list>
+
+<div class="\"></div>
+
+

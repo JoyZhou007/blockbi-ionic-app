@@ -1,0 +1,113 @@
+
+//安卓默认投影
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after,
+.footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+  height: 0 !important;
+}
+
+//ios slides 颜色
+.swiper-pagination {
+
+  .swiper-pagination-bullet-active:nth-child(1n) {
+    background-color: $main-c !important;
+    box-shadow: 0 0 4px 0 $main-c, 0 0 4px 0 $main-c !important;
+  }
+  .swiper-pagination-bullet-active:nth-child(2n) {
+    background-color: $c18-c-20 !important;
+    box-shadow: 0 0 4px 0 $c18-c-20, 0 0 4px 0 $c18-c-20 !important;
+  }
+  .swiper-pagination-bullet-active:nth-child(3n) {
+    background-color: $c8-c !important;
+    box-shadow: 0 0 4px 0 $c8-c, 0 0 4px 0 $c8-c !important;
+  }
+  .swiper-pagination-bullet-active:nth-child(4n) {
+    background-color: $c19-c-4 !important;
+    box-shadow: 0 0 4px 0 $c19-c-4, 0 0 4px 0 $c19-c-4 !important;
+  }
+  .swiper-pagination-bullet-active:nth-child(5n) {
+    background-color: $c19-c-5 !important;
+    box-shadow: 0 0 4px 0 $c19-c-5, 0 0 4px 0 $c19-c-5 !important;
+  }
+}
+
+//android input默认left的margin
+.text-input-md{margin-left:0 !important;}
+
+//底部菜单切换
+.ion-ios-home, .ion-md-home, .ion-ios-home-outline {
+  &:before {
+    font-family: 'biIcon';
+    content: "\e92a";
+    display: block;
+    font-size: 22px;
+    color: rgba($b2-c,.5);
+    transition:all linear $time;
+  }
+}
+
+.ion-ios-contacts, .ion-md-contacts, .ion-ios-contacts-outline {
+  &:before {
+    font-family: 'biIcon';
+    content: "\e911";
+    display: block;
+    font-size: 22px;
+    color: rgba($b2-c,.5);
+    transition:all linear $time;
+
+  }
+}
+
+.ion-ios-map, .ion-md-map, .ion-ios-map-outline {
+  &:before {
+    font-family: 'biIcon';
+    content: "\e91c";
+    display: block;
+    font-size: 22px;
+    color: rgba($b2-c,.5);
+    transition:all linear $time;
+  }
+}
+
+.ion-ios-information-circle, .ion-md-information-circle, .ion-ios-information-circle-outline {
+  &:before {
+    font-family: 'biIcon';
+    content: "\e910";
+    display: block;
+    font-size: 22px;
+    color: rgba($b2-c,.5);
+    transition:all linear $time;
+  }
+}
+.global-tab {
+  ion-icon {
+    width: 22px !important;
+    height: 24px !important;
+    min-width: 22px !important;
+  }
+  .tabbar {
+    background: $write;
+    box-shadow: 0 2px 4px rgba($c18-c-49, .5);
+    border-top: 1px solid rgba($c18-c-49, .5);
+  }
+  .tab-button-text {
+    font-size: 9px;
+    color: $c11-c;
+    font-family: $fontR;
+  }
+  *[aria-selected=true] {
+    .tab-button-text {
+      color: $b2-c;
+    }
+    .ion-ios-home, .ion-md-home, .ion-ios-home-outline,
+    .ion-ios-contacts, .ion-md-contacts, .ion-ios-contacts-outline,
+    .ion-ios-map, .ion-md-map, .ion-ios-map-outline,
+    .ion-ios-information-circle, .ion-md-information-circle, .ion-ios-information-circle-outline{
+      &:before{
+        color: $b2-c;
+      }
+    }
+  }
+}
+
+
+

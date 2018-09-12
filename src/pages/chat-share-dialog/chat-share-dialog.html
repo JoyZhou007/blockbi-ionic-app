@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar class="g-header clearfix">
+        <span class="bi-icon-down back" navPop></span>
+        <span class="g-header-title">SHARE</span>
+    </ion-navbar>
+    <ion-segment class="g-ion-segment g-margin-top10" *ngIf="currentForm == 2">
+        <ion-segment-button
+                [class.active]="currentType == 1"
+                (click)="switchNewChannelType($event,2)">
+            <div class="bi-icon-business1"></div>
+            <div class="f3-f">Business</div>
+        </ion-segment-button>
+        <ion-segment-button
+                [class.active]="currentType == 2"
+                (click)="switchNewChannelType($event,2)">
+            <div class=" bi-icon-mission"></div>
+            <div class="f3-f">Mission</div>
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+
+<ion-content padding>
+    <div class="g-list54">
+        <ion-list>
+            <ion-item *ngFor="let item of currentList;let i = index"
+                      (click)="shareToTheChannel(item)"
+                      class="group-list" no-padding>
+                <p class="icon-mission" *ngIf="item.is_mission == 1 ">M</p>
+                <p class="icon-private" *ngIf="item.is_mission == 0 && item.form == 1">P</p>
+                <p class="icon-business" *ngIf="item.is_mission == 0 && item.form == 2">B</p>
+                <h2 margin-left>{{item.name}}</h2>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

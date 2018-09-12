@@ -1,0 +1,51 @@
+<ion-header class="chat-new-channel-header g-header">
+    <ion-navbar class="g-header clearfix">
+        <span class="bi-icon-down back" navPop></span>
+        <span class="g-header-title">CHAT NEW CHANNEL</span>
+        <span class="send send-done" (click)="confirmCreate($event,formGroup)">SEND</span>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="new-channel-content">
+    <form [formGroup]="fGroup">
+        <ion-segment class="channel-type g-ion-segment">
+            <ion-segment-button
+                    [class.active]="currentForm ==1"
+                    (click)="switchNewChannelType($event,1)">
+                <div class="bi-icon-business1"></div>
+                <div class="f3-f">In Private</div>
+            </ion-segment-button>
+            <ion-segment-button
+                    [class.active]="currentForm ==2"
+                    (click)="switchNewChannelType($event,2)">
+                <div class="bi-icon-business1"></div>
+                <div class="f3-f">Business</div>
+            </ion-segment-button>
+        </ion-segment>
+
+        <div class="g-title g-margin-top20 f9-f">CHANNEL NAME</div>
+        <div class="g-title-content">
+            <ion-input type="text" class="f19-f" [(ngModel)]="channelName" formControlName="channelNameReg"></ion-input>
+        </div>
+        <div *ngIf="channelNameReg.invalid && (channelNameReg.dirty || channelNameReg.touched || hasClickOnSend)"
+             text-left
+             class="input-error-msg ">
+            <div *ngIf="channelNameReg.errors.required">channel name is required.</div>
+        </div>
+    </form>
+    <div class="g-title g-margin-top20 f9-f">INVITEES</div>
+    <public-select-interface
+            (outPutSelectChange)=selectedChange($event)
+            [selectedOption]=selectedPeopleArray
+            [dropDownOption]="inviteDropDownObj">
+    </public-select-interface>
+    <div *ngIf="!selectedPeopleArray.length && hasClickOnSend" text-left
+         class="input-error-msg ">
+        Must select at least one member!
+    </div>
+    <div class="g-title g-margin-top20 f9-f">TOPIC</div>
+    <div class="g-title-content">
+        <ion-input type="text" [(ngModel)]="channelTopic" class="f19-f"></ion-input>
+    </div>
+</ion-content>
+

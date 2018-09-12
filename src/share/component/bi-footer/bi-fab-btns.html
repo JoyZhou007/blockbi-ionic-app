@@ -1,0 +1,27 @@
+<div class="g-fab">
+    <ion-fab class="g-footer" center bottom #fab>
+        <button ion-fab (click)="clickAdd()">
+            <div #addBtn>
+                <ion-icon name="add"></ion-icon>
+            </div>
+        </button>
+        <ion-fab-list side="top" *ngIf="buttons.length">
+            <div ion-fab class="fab-detail" (click)="clickOnButtons(btn,fab)"
+                 *ngFor="let btn of buttons">
+                <span class="bi-icon-new-tips ion-fab-icon" *ngIf="btn.label == 'new tips'"></span>
+                <span class="bi-icon-clocking-in ion-fab-icon" *ngIf="btn.label == 'clocking in'"></span>
+                <span class="bi-icon-out-of-office ion-fab-icon" *ngIf="btn.label == 'out of office'"></span>
+                <span class="bi-icon-application-of-leave ion-fab-icon" *ngIf="btn.label == 'application of leave'"></span>
+                <span class="bi-icon-invite-people ion-fab-icon" *ngIf="btn.label == 'invite people'"></span>
+                <span class="bi-icon-new-post ion-fab-icon" *ngIf="btn.label == 'NEW POST'"></span>
+                <span class="bi-icon-new-chat-channel ion-fab-icon" *ngIf="btn.label == 'NEW CHAT CHANNEL'"></span>
+                <span class="bi-icon-import-files ion-fab-icon" *ngIf="btn.label == 'UPLOAD FILES'"></span>
+                <span class="bi-icon-new-folder ion-fab-icon" *ngIf="btn.label == 'NEW FOLDER'"></span>
+                <i class="fab-title f23-f">{{btn.label.split(' ')[0] | uppercase}} {{(btn.label.split(' ')[2] ? btn.label.split(' ')[1] : '') | uppercase}}</i>
+                <i class="fab-title f23-f">{{(btn.label.split(' ')[2] ? btn.label.split(' ')[2] : btn.label.split(' ')[1]) | uppercase}}</i>
+               <!-- {{btn.label}}-->
+            </div>
+        </ion-fab-list>
+    </ion-fab>
+</div>
+

@@ -1,0 +1,147 @@
+// 字体变量
+$fontB: 'LatoBold';
+$fontL: 'LatoLight';
+$fontR: 'LatoRegular';
+$fontT: 'LatoThin';
+$fontM: 'LatoMedium';
+$font-path: '../assets/font/';
+
+@font-face {
+  @include f-family($font-path, $fontR, 'LatoLatin-Regular');
+}
+
+@font-face {
+  @include f-family($font-path, $fontL, 'LatoLatin-Light');
+}
+
+@font-face {
+  @include f-family($font-path, $fontT, 'LatoLatin-Thin');
+}
+
+.f9-f {
+  font-size: 12px;
+  color: $b9-c;
+  font-family: $fontR!important;
+}
+
+.f23-f {
+  font-size: 12px;
+  color: $main-c;
+  font-family: $fontM!important;
+}
+
+.f49-f {
+  font-size: 28px!important;
+  color: $c1-c;
+  font-family: $fontL;
+}
+
+.f52-f {
+  font-size: 18px;
+  color: $c2-c;
+  font-family: $fontL!important;
+}
+
+.f12-f {
+  font-size: 13px;
+  color: $write;
+  font-family: $fontM!important;
+}
+
+.f6-f{
+  font-size:12px;
+  color: $write;
+  font-family: $fontR!important;
+}
+.f3-f{
+  font-size:11px;
+  color: $c18-c-48;
+  font-family: $fontR!important;
+}
+.f7-f{
+  font-size:14px;
+  color: $c1-c;
+  font-family: $fontM!important;
+}
+.f15-f{
+  font-size:12px;
+  font-style: italic;
+  font-family: $fontR!important;
+  color: $c1-c;
+}
+.f19-f{
+  font-size:13px;
+  font-family: $fontB!important;
+  color: $b8-c;
+}
+.f20-f{
+  font-size:15px;
+  color: $b8-c;
+  font-family: $fontR!important;
+}
+.f36-f{
+  font-size:12px;
+  color: $bottom-c;
+  font-family: $fontM!important;
+}
+.f5-f2{
+  font-size:11px;
+  color:$b2-c ;
+  font-family:$fontR!important;
+}
+.f5-f{
+  font-size: 12px;
+  font-family: $fontM!important;
+  color:$c17-c-4;
+}
+.f9-f2{
+  font-size:9px;
+  font-family: $fontL!important;
+  color: $b9-c;
+}
+.f9-f3{
+  font-size:14px;
+  color: $c9-c;
+  font-family: $fontB!important;
+}
+.f34-f{
+  font-size: 20px;
+  font-family: $fontL!important;
+  color: $b2-c;
+}
+.f13-f{
+  font-size:9px;
+  font-family: $fontL!important;
+  color: $c2-c;
+}
+.f32-f{
+  font-size:9px;
+  font-family: $fontR!important;
+  color: $b9-c;
+}
+.f27-f{
+  font-size: 10px;
+  font-family: $fontR!important;
+  color: $b2-c;
+}
+.f35-f{
+  font-size:22px;
+  font-family: $fontM!important;
+  color:$b8-c;
+}
+.f27-f4{
+  font-size: 9px;
+  color:$c18-c-51;
+  font-family: $fontR!important;
+}
+.v2-f{
+  font-size: 14px;
+  font-family: $fontR!important;
+  color: $b1-c;
+}
+.f4-f{
+  font-size:13px;
+  font-family: $fontM!important;
+  color: $write;
+}
+

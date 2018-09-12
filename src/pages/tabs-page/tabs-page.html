@@ -1,0 +1,10 @@
+<bi-fab-btns #BiFooter [class.hide]="isHideTabs"></bi-fab-btns>
+<div class="global-tab">
+    <ion-tabs #tabs (ionChange)="rebuildButtons($event)" [selectedIndex]="mySelectedIndex" name="conference" [class.hide-tabs]="isHideTabs">
+        <ion-tab [root]="tab1Root" tabTitle="HOME" tabIcon="home" tabUrlPath="home"></ion-tab>
+        <ion-tab [root]="tab2Root" tabTitle="CHAT" tabIcon="contacts" tabUrlPath="chat"></ion-tab>
+        <ion-tab [root]="tab3Root" tabTitle="FOLDER" tabIcon="map" tabUrlPath="folder"></ion-tab>
+        <ion-tab [root]="tab4Root" tabTitle="MISSION" tabIcon="information-circle" tabUrlPath="mission"></ion-tab>
+    </ion-tabs>
+</div>
+

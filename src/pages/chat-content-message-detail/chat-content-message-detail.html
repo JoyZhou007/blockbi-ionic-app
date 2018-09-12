@@ -1,0 +1,116 @@
+<ion-header>
+    <ion-navbar class="g-header clearfix">
+        <span class="bi-icon-down back" navPop></span>
+        <span class="g-header-title">MESSAGE</span>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding *ngIf="messageObj">
+    <chat-content-message-img
+            [setMessage]=messageObj
+            *ngIf="messageObj.type == chatConfig.CHAT_MESSAGE_TYPE_IMG">
+    </chat-content-message-img>
+
+    <chat-content-message-post
+            [setMessage]=messageObj
+            *ngIf="messageObj.type == chatConfig.CHAT_MESSAGE_TYPE_POST">
+    </chat-content-message-post>
+
+    <chat-content-message-text
+            [setMessage]=messageObj
+            [setChannelInfo] = chatChannelInfo
+            [setAllUserInfo]=allMessageOwnerInfo
+            *ngIf="messageObj.type == chatConfig.CHAT_MESSAGE_TYPE_TEXT">
+    </chat-content-message-text>
+
+    <chat-content-message-file
+            [setMessage]=messageObj
+            *ngIf="messageObj.type == chatConfig.CHAT_MESSAGE_TYPE_FILE">
+    </chat-content-message-file>
+
+    <chat-content-message-system
+            [setMessage]=messageObj
+            *ngIf="messageObj.type == chatConfig.CHAT_MESSAGE_TYPE_SYSTEM">
+    </chat-content-message-system>
+
+    <div *ngIf="messageObj.type == chatConfig.CHAT_MESSAGE_TYPE_FORWARD">
+        <chat-content-message-text
+                [setMessage]=messageObj
+                [setAllUserInfo]=allMessageOwnerInfo
+                [setChannelInfo] = chatChannelInfo
+                [setIsForward]=true
+                *ngIf="messageObj?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_TEXT">
+        </chat-content-message-text>
+        <chat-content-message-img
+                [setMessage]=messageObj
+                [setAllUserInfo]=allMessageOwnerInfo
+                [setIsForward]=true
+                *ngIf="messageObj?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_IMG">
+        </chat-content-message-img>
+        <chat-content-message-file
+                [setMessage]=messageObj
+                [setAllUserInfo]=allMessageOwnerInfo
+                [setIsForward]=true
+                *ngIf="messageObj?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_FILE">
+        </chat-content-message-file>
+        <chat-content-message-post
+                [setMessage]=messageObj
+                [setAllUserInfo]=allMessageOwnerInfo
+                [setIsForward]=true
+                *ngIf="messageObj?.detail?.original_msg?.type == chatConfig.CHAT_MESSAGE_TYPE_POST">
+        </chat-content-message-post>
+    </div>
+
+    <div *ngIf="messageObj.type == chatConfig.CHAT_MESSAGE_TYPE_SHARE">
+        <chat-content-message-img
+                [setMessage]=messageObj
+                [setAllUserInfo]=allMessageOwnerInfo
+                [setIsShare]=true
+                *ngIf="messageObj?.detail?.share_file_type == chatConfig.CHAT_MESSAGE_TYPE_IMG">
+        </chat-content-message-img>
+        <chat-content-message-file
+                [setMessage]=messageObj
+                [setAllUserInfo]=allMessageOwnerInfo
+                [setIsShare]=true
+                *ngIf="messageObj?.detail?.share_file_type == chatConfig.CHAT_MESSAGE_TYPE_FILE">
+        </chat-content-message-file>
+        <chat-content-message-post
+                [setMessage]=messageObj
+                [setAllUserInfo]=allMessageOwnerInfo
+                [setIsShare]=true
+                *ngIf="messageObj?.detail?.share_file_type == chatConfig.CHAT_MESSAGE_TYPE_POST">
+        </chat-content-message-post>
+    </div>
+
+</ion-content>
+
+
+<ion-footer>
+    <div class="chat-detail-function">
+        <div *ngIf="isShowMoreButton" (click)="downloadMessage($event)">
+            <b class="bi-icon-download"></b>
+            <span class="f6-f">Download</span>
+        </div>
+        <div *ngIf="isShowMoreButton" (click)="shareMessage($event)">
+            <b class="bi-icon-share"></b>
+            <span class="f6-f">Share</span>
+        </div>
+        <div>
+            <b class="bi-icon-remind" (click)="remindMessage($event)"></b>
+            <span class="f6-f">Remind</span>
+        </div>
+        <div>
+            <b class="bi-icon-forward" (click)="forwardMessage($event)"></b>
+            <span class="f6-f">Forward</span>
+        </div>
+        <div>
+            <b class=" bi-icon-pin" (click)="pinMessage($event)"></b>
+            <span class="f6-f">{{messageObj?.pinned?'UNPIN':'PIN'}}</span>
+        </div>
+        <div *ngIf="isCanRevoke">
+            <b class=" bi-icon-remove" (click)="revokeMessage($event)"></b>
+            <span class="f6-f">Delete</span>
+        </div>
+    </div>
+</ion-footer>

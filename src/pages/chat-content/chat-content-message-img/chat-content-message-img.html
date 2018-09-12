@@ -1,0 +1,39 @@
+<!-- Generated template for the ChatContentMessageImgComponent component -->
+<div class="img-message" *ngIf="messageObj"
+     [class.self-message]="messageObj?.isSelf"
+     [class.other-message]="!messageObj?.isSelf"
+>
+    <!--<ion-avatar no-padding no-margin>-->
+    <img class="user-avatar"
+         src="{{messageObj?.user_info?.user_profile_path? appConfig.resourceDomain+messageObj?.user_info?.user_profile_path:''}}">
+    <div class="user-name">
+        <span>{{messageObj?.user_info?.work_name}}</span>
+        <span class="bi-icon-resume user-state"></span>
+        <span class="message-time">{{messageObj?.date_time}}</span>
+    </div>
+    <div class="file-name">
+        <span>{{isShareMessage?'share' : isForwardMessage? 'Forward':'Upload'}}</span>
+        <span>{{messageObj?.detail?.file_name}}</span>
+    </div>
+    <!-------非转发消息-------->
+    <div class="message-image" *ngIf="!isForwardMessage">
+        <img src="{{appConfig.resourceDomain + messageObj?.detail?.file_path}}" alt="">
+    </div>
+    <!-------转发消息-------->
+    <div *ngIf="isForwardMessage">
+        <div class="forward-message-owner">
+            <span class="bi-icon-forward"></span>
+            <img src="{{originalMessageOwner?.user_profile_path? appConfig.resourceDomain + originalMessageOwner?.user_profile_path:''}}">
+            <div class="user-name">
+                <span>{{originalMessageOwner?.work_name}}</span>
+            </div>
+            <div class="file-name">
+                <span>Upload</span>
+                <span>{{originalMessageObj?.detail?.file_name}}</span>
+            </div>
+        </div>
+        <div class="forward-message-text">
+            <img src="{{appConfig.resourceDomain + originalMessageObj?.detail?.file_path}}" alt="">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,134 @@
+page-notification-message {
+  .notification-message-header {
+    .toolbar-background {
+      background: #6b6b6b !important;
+      border-bottom: none !important;
+    }
+    .bi-icon-arrow {
+      position: absolute;
+      left: 20px;
+      top: 30px;
+      &:before {
+        font-size: 14px;
+        color: #ffffff;
+      }
+    }
+    .bi-icon-esc {
+      position: absolute;
+      right: 22px;
+      top: 30px;
+      &:before {
+        font-size: 14px;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .notification-message-content {
+    .segment-md .segment-button, .segment-ios .segment-button {
+      color: #fff;
+      border-color: #fff;
+      background-color: #6a6a6a;
+    }
+    .segment-ios .segment-button.segment-activated {
+      background-color: #fff;
+      color: #6a6a6a;
+    }
+    .segment-md .segment-button.segment-activated {
+      border-color: #fff;
+    }
+    .slide-group {
+      ion-slide {
+        height: 100%;
+      }
+    }
+    .slide-zoom {
+      text-align: left;
+    }
+    .tips-detail-menu {
+      margin-top: 0;
+      ion-col {
+        padding: 0;
+      }
+    }
+    .scroll-content {
+      background: #6b6b6b !important;
+    }
+    .notification-ion-slide {
+      height: calc(100% - 150px);
+      margin-top: 20px;
+      ion-card {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        position: relative;
+      }
+      .bi-icon-remove {
+        &:before {
+          font-size: 14px;
+        }
+      }
+      .notification-ion-title{
+        font-size: 20px;
+        color: #9193ab;
+        height: 40px;
+        margin-left: 20px;
+        //border: 1px solid red;
+      }
+      .notification-desc{
+        p:first-child{
+          font-size: 11px;
+          color: #7b7a8a;
+        }
+        p:last-child{
+          font-size: 13px;
+          color: #4c4b63;
+        }
+      }
+      .notification-message{
+        p:first-child{
+          font-size: 11px;
+          color: #7b7a8a;
+        }
+        p:last-child{
+          font-size: 13px;
+          color: #4c4b63;
+        }
+      }
+      .notification-button-type1 {
+        width: calc(100% - 32px);
+        margin: 0 16px 10px 16px;
+        position: absolute;
+        bottom: 0;
+        background: #9193ab;
+      }
+      .notification-button-type2 {
+        width: calc(100% - 32px);
+        margin: 0 16px 10px 16px;
+        position: absolute;
+        bottom: 0;
+        background: #7078f7;
+      }
+      .notification-button-type3 {
+        width: calc(50% - 24px);
+        margin: 0 16px 10px 16px;
+        position: absolute;
+        bottom: 0;
+        background: #CECECE;
+      }
+      .notification-button-type4 {
+        width: calc(50% - 24px);
+        margin: 0 16px 10px 16px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background: #7BE0AD;
+      }
+    }
+    .height100{
+      height: 100%;
+      width: 100%;
+      background: #ffffff;
+    }
+  }
+}

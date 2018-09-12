@@ -1,0 +1,30 @@
+<ion-card>
+    <ion-item><span item-end class="bi-icon-remove"></span></ion-item>
+    <div class="notification-ion-title">NEW CONTACT</div>
+    <ion-item>
+        <ion-avatar item-start>
+            <img src="{{sendInfo?.user_profile_path? appConfig?.resourceDomain + sendInfo?.user_profile_path :''}}">
+        </ion-avatar>
+        <h2>{{sendInfo?.work_name}}</h2>
+        <p>{{sendInfo?.p_name}}</p>
+    </ion-item>
+    <ion-item class="notification-desc">
+        <p>RELATION</p>
+        <p>{{relationType}}</p>
+    </ion-item>
+    <ion-card-content class="notification-message">
+        <p>MESSAGE</p>
+        <p>{{remarkMessage}}</p>
+        <!--<div *ngIf="!notificationData?.handled">-->
+            <!--<p class="new-contact-feedback">FEEDBACK</p>-->
+            <!--<div  class="text-div">-->
+                <!--<textarea maxlength="100" [(ngModel)]="contactFeedback"></textarea>-->
+            <!--</div>-->
+            <!--<p class="g-margin-top5">Maximum 100 characters can be entered!</p>-->
+        <!--</div>-->
+    </ion-card-content>
+    <div *ngIf="!notificationData?.handled">
+        <button ion-button class="notification-button-type3" (click)="refuseNewFriend($event)">REFUSE</button>
+        <button ion-button class="notification-button-type4" (click)="acceptNewFriend($event)">ACCEPT</button>
+    </div>
+</ion-card>

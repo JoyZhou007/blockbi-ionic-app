@@ -1,0 +1,50 @@
+<ion-content class="login-content">
+  <ion-title text-center>
+    <div class="bi-icon-logo login-log"></div>
+  </ion-title>
+  <form novalidate *ngIf="!isLogin && rForm" [formGroup]="rForm" (ngSubmit)="doLogin(rForm.value)">
+    <ion-list>
+
+      <ion-item class="item-input-style">
+        <ion-label floating class="f52-f">PERSONAL EMAIL OR PHONE</ion-label>
+        <ion-input type='text' formControlName="username" class="f49-f" clearInput></ion-input>
+      </ion-item>
+      <div *ngIf="!username.valid && (username.dirty || username.touched)" text-left class="input-error-msg default-error-padding">
+        <div *ngIf="username.errors.required">
+          Email or phone is required.
+        </div>
+        <div *ngIf="username.errors.forbidden">
+          Email or phone is not correct.
+        </div>
+      </div>
+      <ion-item class="item-input-style">
+        <ion-label floating class="f52-f">PASSWORD</ion-label>
+        <ion-input type='password' formControlName="password" class="f49-f" clearInput></ion-input>
+      </ion-item>
+      <div *ngIf="!password.valid && (password.dirty || password.touched)" text-left class="input-error-msg default-error-padding">
+        <div *ngIf="password.errors.required">
+          Password is required.
+        </div>
+        <div *ngIf="password.errors.minlength || password.errors.maxlength" >
+          The length of the password must be between 8 and 20.
+        </div>
+      </div>
+      <div class="input-error-msg default-error-padding" ion-text text-left  color="danger" *ngIf="errorMsg?.show">
+        {{errorMsg.text}}
+      </div>
+      <div class="login-but">
+        <button padding type="submit" ion-button block class="but-shadow">Login</button>
+      </div>
+  </ion-list>
+  </form>
+
+</ion-content>
+
+<ion-footer>
+    <div class="login-footer">
+      <button [navPush]="'personal-register'" float-left class="f9-f">SIGN UP NOW</button>
+      <button [navPush]="'guide'" float-left class="f9-f">guide</button>
+      <button float-right class="f9-f" [navPush]="'forget-password'">Forget password?</button>
+    </div>
+</ion-footer>
+

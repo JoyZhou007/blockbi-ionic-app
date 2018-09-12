@@ -1,0 +1,9 @@
+<!-- Generated template for the PublicSelectInterfaceComponent component -->
+<div class="g-title-content" (click)="showPublicSelect($event)">
+  <div class="choose-people-wrap" *ngFor="let item of selectItemArray">
+    <img src="{{item.imageLabel? appConfig.resourceDomain + item.imageLabel:''}}" alt="">
+    <div class="choose-people-name">{{item.label}}</div>
+    <span class="bi-icon-esc" (click)="deleteSelected($event,item)"></span>
+  </div>
+  <span class="bi-icon-down" *ngIf="!readOnly"></span>
+</div>

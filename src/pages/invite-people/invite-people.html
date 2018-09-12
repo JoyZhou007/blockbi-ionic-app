@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-title class="g-header" text-center>
+    <button  float-start (click)="clickToPrevPage($event)">
+      <span class="bi-icon-arrow rotate90"></span>
+    </button>
+    INVITE PEOPLE
+    <a float-end (click)="sendData($event)" *ngIf="showSendBtn">send</a>
+  </ion-title>
+</ion-header>
+<ion-content class="invite-content">
+  <div text-left padding>INVITEE</div>
+  <ion-slides #slides>
+    <ion-slide>
+      <div text-left padding class="invite-tit">Type an email or phone number to invite</div>
+      <ion-list >
+        <ion-item-group>
+          <ion-item-divider color="light">
+            Select more way to invite people
+          </ion-item-divider>
+          <button ion-item>
+            <div class="bi-icon-from-contacts" item-start (click)="clickTurnContact($event)"></div>
+            From contacts
+          </button>
+          <button ion-item (click)="clickTurnEmail($event)">
+            <div class="bi-icon-share-a-link" item-start></div>
+            Share Links
+          </button>
+        </ion-item-group>
+      </ion-list>
+    </ion-slide>
+    <ion-slide>
+      <div *ngFor="let invite of inviteList;let i = index;" class="relative">
+        <ion-item >
+          <ion-input  type="text" value="" float-left
+                      [(ngModel)]="invite.email"
+                      placeholder="Fill in email"
+          ></ion-input>
+          <ion-icon class="bi-icon-delete" item-end *ngIf="inviteList.length > 1" (click)="clickDeleteInput($event, i)"></ion-icon>
+        </ion-item>
+        <div text-left class="input-error-msg default-error-padding"
+             [hidden]="!invite.errorText">{{invite.errorText}}
+        </div>
+      </div>
+
+      <div text-left class="input-error-msg default-error-padding"
+           *ngIf="email_error.show">{{email_error.text}}
+      </div>
+      <div text-left padding class="invite-tit">Type an email or phone number to invite</div>
+      <button ion-button block clear (click)="clickAddInvitees($event)">MORE INVITED PERSON</button>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

@@ -1,0 +1,134 @@
+<ion-header class="g-header register-header g-header-icon">
+  <ion-navbar>
+    <span class="bi-icon-arrow back-but" (click)="clickToPrevPage($event)"></span>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="register-content">
+  <form novalidate [formGroup]="rForm" *ngIf="!isRegister">
+    <ion-slides pager #Slides (ionChange)="checkValid($event, rForm)">
+      <!--work name-->
+      <ion-slide>
+        <div ion-text class="f9-f absolute register-title">SIGN UP YOUR ACCOUNT</div>
+        <ion-item class="item-input-style">
+          <ion-label class="work-name" floating>WORK NAME</ion-label>
+          <ion-input type="text" formControlName="username" [(ngModel)]="userData.work_name" class="f49-f"></ion-input>
+        </ion-item>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" text-left class="input-error-msg default-error-padding">
+          <div *ngIf="username.errors.required">name is required.</div>
+          <div *ngIf="username.errors.minlength || username.errors.maxlength">The length of the name must be between 2 and 12.</div>
+        </div>
+        <button class="next-but" (click)="clickToNextPage($event)">
+          <span class="bi-icon-arrow2 work-name"></span>
+        </button>
+      </ion-slide>
+
+      <!--phone-->
+      <ion-slide>
+        <div ion-text class="f9-f absolute register-title">SIGN UP YOUR ACCOUNT</div>
+        <ion-item class="item-input-style">
+          <ion-label class="personal-phone" floating>PERSONAL PHONE</ion-label>
+          <ion-input type="phone" formControlName="phone" [(ngModel)]="userData.phone" class="f49-f"></ion-input>
+        </ion-item>
+        <!--<ion-item>-->
+          <!--<ion-input placeholder="auth code" clearInput-->
+                     <!--[(ngModel)]="userData.code"-->
+                     <!--formControlName="authCode"-->
+
+          <!--&gt;</ion-input>-->
+        <!--</ion-item>-->
+        <ion-grid class="code-lst">
+          <ion-row>
+            <ion-col col-2 *ngFor="let num of tplAuthCodeList; let i=index;">
+              <input  #codeInput (keyup)="autoTab($event, i, codeInput)" (focus)="currentTab=i" maxlength="1" class="item-code-input" type="text">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" text-left class="input-error-msg default-error-padding">
+          <div *ngIf="phone.errors.required" color="danger">
+            phone is required.
+          </div>
+          <div *ngIf="phone.errors.forbidden" color="danger">
+            phone is not correct.
+          </div>
+        </div>
+
+        <div ion-text text-left padding color="danger" *ngIf="phone_alert.show">
+          {{phone_alert.text}}
+        </div>
+        <button class="next-but" (click)="clickToNextPage($event)">
+          <span class="bi-icon-arrow2 personal-phone"></span>
+        </button>
+        <div padding *ngIf="phone.valid">
+          <button ion-button disabled="{{num}}" clear block (click)="clickSendAuthCode($event)">
+            {{num? num +' s' : 'send auth code'}}
+          </button>
+        </div>
+      </ion-slide>
+
+      <!--email-->
+      <ion-slide>
+        <div ion-text class="f9-f absolute register-title">SIGN UP YOUR ACCOUNT</div>
+        <ion-item class="item-input-style">
+          <ion-label class="personal-mail" floating>PERSONAL EMAIl</ion-label>
+          <ion-input type="email" formControlName="email" [(ngModel)]="userData.email" class="f49-f"></ion-input>
+        </ion-item>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)"
+             class="alert alert-danger">
+          <!--<div *ngIf="email.errors.required" ion-text text-left padding color="danger">-->
+          <!--email is required.-->
+          <!--</div>-->
+          <div *ngIf="email.errors.forbidden" ion-text text-left padding color="danger">
+            Email is not correct.
+          </div>
+        </div>
+        <button class="next-but" (click)="clickToNextPage($event)">
+          <span class="bi-icon-arrow2 personal-mail"></span>
+        </button>
+      </ion-slide>
+
+      <!--password-->
+      <ion-slide>
+        <div ion-text class="f9-f absolute register-title">SIGN UP YOUR ACCOUNT</div>
+        <ion-item class="item-input-style">
+          <ion-label class="password" floating>PASSWORD</ion-label>
+          <ion-input type="password" [(ngModel)]="userData.password" formControlName="password" class="f49-f"></ion-input>
+        </ion-item>
+        <ion-item class="item-again item-input-style">
+          <ion-label floating class="again-item" floating>Again</ion-label>
+          <ion-input  type="password" formControlName="confirmPwd" [(ngModel)]="userData.confirm_password" (keyup)="compareOldPwd()" class="f49-f"></ion-input>
+          <span class="bi-icon-arrow2 password" (click)="clickToNextPage($event)"></span>
+        </ion-item>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" text-left class="input-error-msg default-error-padding">
+          <div *ngIf="password.errors.required" color="danger">password is required.</div>
+          <div *ngIf="password.errors.minlength || password.errors.maxlength">The length of the password must be between 8 and 20.</div>
+        </div>
+        <div text-left class="input-error-msg default-error-padding" *ngIf="confirmPwd_alert.show">{{confirmPwd_alert.text}}</div>
+          <button class="next-but password-but" (click)="clickToNextPage($event)">
+              <span class="bi-icon-arrow2 password"></span>
+          </button>
+      </ion-slide>
+
+
+      <ion-slide>
+        <div ion-text class="f9-f absolute register-title">SIGN UP YOUR ACCOUNT</div>
+          <ion-label class="register-phone item-photo" text-start floating>YOUR PHOTO</ion-label>
+          <ion-card padding>
+              <ion-card-content><img src="assets/icon/bi-logo.png" alt="" style="width: 100%;"></ion-card-content>
+          </ion-card>
+          <div text-left class="input-error-msg default-error-padding" *ngIf="userData_alert.show">{{userData_alert.text}}</div>
+          <button ion-button round outline (click)="doRegister(rForm)" class="register-phone item-photo-but">JUMP IT</button>
+      </ion-slide>
+    </ion-slides>
+  </form>
+
+  <div *ngIf="isRegister">
+    <ion-card padding>
+      <ion-card-content><img src="assets/image/monkey-icon1.png" alt=""></ion-card-content>
+    </ion-card>
+    <div padding ion-text text-center color="primary">Congratulation !!!</div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,40 @@
+<!-- Generated template for the ChatContentInputComponent component -->
+<div class="chat-content-footer" [class.show_more]="isShowMoreIcons">
+    <div class="chat-at-list" *ngIf="isShowAtList && !isFriend">
+        <ul>
+            <li *ngFor="let item of atUserList">
+                <button (click)="atClickPerson($event,item,input)">
+                    <img src="{{item?.user_profile_path? appConfig.resourceDomain+item?.user_profile_path:''}}">
+                    <span class="pull-left f32-f">{{item?.work_name}}</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <textarea placeholder="Message in here"
+              #input
+              (focus)="focusEvent($event)"
+              (paste)="pasteEvent($event,input)"
+              (keydown)="keyDownEvent($event)"
+              (keyup)="keyUpEvent($event)"
+              [(ngModel)]="messageData">
+    </textarea>
+    <span class="send-message"  (click)="sendMessage($event)">SEND</span>
+    <div class="footer-function-top">
+        <div class="footer-function-icons">
+            <span class="bi-icon-at" (click)="showAtList($event)"> </span>
+            <span class="bi-icon-pic" (click)="showPhonePic($event)"></span>
+            <span class="bi-icon-smile"></span>
+            <span class="bi-icon-more" (click)="showMoreIcons($event)"></span>
+        </div>
+        <div class="function-speak">
+            <b class="bi-icon-attention"></b>
+            <b class="function-text">SPEAK</b>
+        </div>
+    </div>
+    <div class="footer-function-bottom" *ngIf="isShowMoreIcons">
+        <span class="bi-icon-import-files"> </span>
+        <span class="bi-icon-new-post"></span>
+        <span class="bi-icon-location"></span>
+        <span></span>
+    </div>
+</div>

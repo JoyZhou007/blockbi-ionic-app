@@ -1,0 +1,101 @@
+page-chat-new-channel{
+  ion-header {
+    ion-navbar {
+      .send {
+        float: right;
+      }
+    }
+  }
+  .new-channel-content {
+    ion-segment-button {
+      text-transform: none !important;
+    }
+    .segment-md .segment-button {
+      opacity: 1;
+    }
+    ion-item {
+      border-bottom: none !important;
+      border-top: none !important;
+      margin-top: 20px;
+      padding-left: 0 !important;
+      .item-inner {
+        border-bottom: none !important;
+      }
+      ion-label {
+        border-bottom: 1px solid #ABABAB !important;
+        padding-bottom: 4px;
+        font-size: 11px;
+        color: #7b7a8a;
+      }
+      ion-input input {
+        border-bottom: 1px solid #ABABAB !important;
+        height: 38px;
+        line-height: 38px;
+        color: #4C4B63;
+        font-size: 13px;
+      }
+      .chat-invites-lab {
+        border-bottom: 1px solid #ABABAB !important;
+        padding-bottom: 5px;
+      }
+      .chat-invites-div {
+        font-size: 13px;
+        width: 100%;
+        color: #4C4B63;
+        min-height: 38px;
+        max-height: 60px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        .invite-people {
+          margin-top: 7px;
+          float: left;
+          margin-right: 20px;
+          img {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px 0 0 4px;
+            float: left;
+          }
+          .selected-people-name {
+            height: 24px;
+            width: 80px;
+            float: left;
+            background: #7078F7;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 24px;
+            color: #ffffff;
+            padding-left: 4px;
+          }
+          .selected-delete {
+            height: 24px;
+            width: 22px;
+            float: left;
+            color: #ffffff;
+            line-height: 24px;
+            background: #7078F7;
+            padding-left: 6px;
+            border-radius: 0 4px 4px 0;
+          }
+        }
+      }
+    }
+    .list-md {
+      .item-input {
+        &.input-has-focus:last-child {
+          border-bottom: none !important;
+          box-shadow: none !important;
+        }
+        &.input-has-focus .item-inner {
+          border-bottom: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+
+  }
+}
+
+
+

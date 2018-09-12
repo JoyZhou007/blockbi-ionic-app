@@ -1,0 +1,39 @@
+<ion-header>
+    <!--<ion-navbar class="chat-channel-member-title">-->
+        <!--<span class="bi-icon-arrow" navPop></span>-->
+        <!--<span>TEAM MEMBER</span>-->
+        <!--<button class="chat-member-invite"-->
+                <!--(click)="inviteMoreMember($event)"-->
+                <!--*ngIf="menuInfo?.is_mission == 0">-->
+            <!--INVITE-->
+        <!--</button>-->
+    <!--</ion-navbar>-->
+    <ion-navbar class="g-header clearfix">
+        <span class="bi-icon-down back" navPop></span>
+        <span class="g-header-title">TEAM MEMBER</span>
+        <span class="send"
+              *ngIf="menuInfo?.is_mission == 0"
+              (click)="inviteMoreMember($event)">INVITE</span>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-content>
+        <ion-list class="chat-member-list">
+            <ion-item *ngFor="let item of channelMemberArr" no-lines>
+                <ion-avatar item-start no-margin no-padding>
+                    <img src="{{item?.user_profile_path? appConfig?.resourceDomain + item?.user_profile_path :''}}">
+                    <b [class.status-online]="item.online ==1"
+                       [class.status-offline]="item.online ==0">
+                    </b>
+                </ion-avatar>
+                <p class="chat-member-work-name">{{item.work_name}}</p>
+                <p class="chat-member-p-name">{{item?.p_name}}</p>
+                <span item-end class="bi-icon-delete"
+                      *ngIf="menuInfo?.is_host == 1 && menuInfo?.is_mission == 0 &&(item?.uid != currentUUID && item?.uid != currentPSID)"
+                      (click)="deleteTeamMember($event,item)"></span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-content>

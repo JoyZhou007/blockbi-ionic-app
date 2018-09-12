@@ -1,0 +1,42 @@
+<!--
+  Generated template for the NewTipsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar class="g-header clearfix">
+            <span class="bi-icon-down back" navPop #goBack></span>
+            <span class="g-header-title">{{updateTips ? 'EDIT TIPS' : 'NEW TIPS'}}</span>
+            <span class="send" (click)="sendTo($event)">SEND</span>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="new-tips">
+    <form [formGroup]="fGroup">
+        <div class="g-title f9-f">SHARE TO</div>
+
+        <public-select-interface
+                (outPutSelectChange) = selectedChange($event)
+                [selectedOption] = selectedArr
+                [dropDownOption]="inviteDropDownObj">
+        </public-select-interface>
+        <div class="g-title f9-f g-margin-top20">CONTENT</div>
+        <div class="g-title-content">
+            <ion-input type="text" [(ngModel)]="content" class="f19-f" formControlName="fContent"></ion-input>
+        </div>
+        <div *ngIf="fContent.invalid && (fContent.dirty || fContent.touched || hasClickOnSend)"
+             text-left
+             class="input-error-msg">
+            <div *ngIf="fContent.errors.required">content is required.</div>
+            <div *ngIf="fContent.errors.maxlength" >
+                The length of the content must be between 1 and 200.
+            </div>
+        </div>
+    </form>
+        <div class="g-remove-btn g-margin-top20 g-background-b2-c">SET ALARM</div>
+        <div class="alarm-wrap">
+            <ion-datetime displayFormat="YYYY-MM-DD HH:mm" class="f19-f" [(ngModel)]="alarmTime" (ngModelChange)="setTipsAlarm()"></ion-datetime>
+        </div>
+        <div class="g-remove-btn g-margin-top20 tip-detail-remove" *ngIf="updateTips">REMOVE TIPS</div>
+</ion-content>

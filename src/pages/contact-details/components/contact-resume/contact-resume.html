@@ -1,0 +1,65 @@
+<!-- Generated template for the ContactResumeComponent component -->
+
+<div>
+    <div class="personal-resume-content">
+        <div class="personal-general-title f7-f">EDUCATION</div>
+        <div class="g-margin-left10">
+            <div *ngFor="let education of educations">
+                <div class="personal-general-work-name">
+                    <div class="f9-f">PERIOD</div>
+                    <div class="f19-f g-max-width90">{{education.start_date}}<span class="bi-icon-arrow3 g-arrow"></span> {{education.end_date}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="education.start_date == '' && education.end_date == ''">No Data</div>
+                </div>
+                <div class="personal-general-work-name">
+                    <div class="f9-f">SCHOOL</div>
+                    <div class="f19-f g-max-width90">{{education.school}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="education.school == ''">No Data</div>
+                </div>
+                <div class="personal-general-work-name">
+                    <div class="f9-f">MAJOR</div>
+                    <div class="f19-f g-max-width90">{{education.major}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="education.major == ''">No Data</div>
+                </div>
+                <div class="personal-general-work-name">
+                    <div class="f9-f">SPECIFICATION</div>
+                    <div class="f19-f g-max-width90">{{education.description}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="education.description == ''">No Data</div>
+                </div>
+            </div>
+            <div class="f19-f g-no-data-color personal-general-phone personal-general-work-name" *ngIf="educations.length == 0">No Data</div>
+        </div>
+
+        <div class="personal-general-title f7-f">EXPERIENCE</div>
+        <div class="g-margin-left10">
+            <div *ngFor="let experience of experiences">
+                <div class="personal-general-phone personal-general-work-name">
+                    <div class="f9-f">PERIOD</div>
+                    <div class="f19-f g-max-width90">{{experience.start_date}} <span class="bi-icon-arrow3 g-arrow"></span> {{experience.end_date}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="experience.start_date == '' && experience.end_date == ''">No Data</div>
+                </div>
+                <div class="personal-general-phone personal-general-work-name">
+                    <div class="f9-f">COMPANY</div>
+                    <div class="f19-f g-max-width90">{{experience.company}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="experience.company == ''">No Data</div>
+                </div>
+                <div class="personal-general-phone personal-general-work-name">
+                    <div class="f9-f">INITIAL POSITION</div>
+                    <div class="f19-f g-max-width90">{{experience.initial_position}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="experience.initial_position == ''">No Data</div>
+                </div>
+                <div class="personal-general-phone personal-general-work-name">
+                    <div class="f9-f">LAST POSITION</div>
+                    <div class="f19-f g-max-width90">{{experience.finial_position}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="experience.finial_position == ''">No Data</div>
+                </div>
+                <div class="personal-general-phone personal-general-work-name">
+                    <div class="f9-f">SPECIFICATION</div>
+                    <div class="f19-f g-max-width90">{{experience.description}}</div>
+                    <div class="f19-f g-no-data-color" *ngIf="experience.description == ''">No Data</div>
+                </div>
+            </div>
+            <div class="f19-f g-no-data-color personal-general-phone personal-general-work-name" *ngIf="experiences.length == 0">No Data</div>
+        </div>
+
+    </div>
+</div>

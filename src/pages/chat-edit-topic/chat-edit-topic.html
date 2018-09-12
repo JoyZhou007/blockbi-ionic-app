@@ -1,0 +1,16 @@
+<ion-header>
+    <ion-navbar class="g-header clearfix">
+        <span class="bi-icon-down back" navPop></span>
+        <span class="g-header-title">EDIT TOPIC</span>
+        <span class="send send-done" (click)="confirmEditTopic($event)">DONE</span>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="edit-topic-content">
+    <ion-item no-padding no-lines>
+        <ion-label stacked>CHANNEL TOPIC</ion-label>
+        <ion-input type="text" [(ngModel)]="currentTopic">
+        </ion-input>
+    </ion-item>
+</ion-content>

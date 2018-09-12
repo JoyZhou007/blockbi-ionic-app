@@ -1,0 +1,58 @@
+<!----文件列表部分----->
+<ion-list  *ngIf="isListView">
+    <div ion-item *ngFor="let file of fileList"
+            class="list-file-view"
+            (click)="enterTheFolder($event,file)">
+        <span *ngIf="file.ext_type !='image'">
+                                <span *ngIf="file.chn == 0 || file.chn == -1"
+                                      class="list-file-icon icon-file-s-{{file.ext_type}}"></span>
+                                <span *ngIf="file.chn == 1 && file.is_dir == 1"
+                                      class="list-file-icon icon-file-s-share"></span>
+                                <span *ngIf="file.chn == 2 && file.is_dir == 1 "
+                                      class="list-file-icon icon-file-s-chat"></span>
+                                <span *ngIf="file.chn == 3 && file.is_dir == 1"
+                                      class="list-file-icon icon-file-s-mission"></span>
+        </span>
+        <img *ngIf="file.ext_type =='image'" class="file-image selectBtn"
+             src="{{file.thumb_l ? config.resourceFolderDomain + file.thumb_s : ''}}">
+        <ion-icon class="icon-starred"  name="star" *ngIf="file.is_starred"></ion-icon>
+        <div class="file-name">
+            <p class="file-list-name f5-f"> {{file.name}}</p>
+            <p class="file-child-list f27-f4" *ngIf="file.is_dir">{{file.child}} files</p>
+            <p class="file-child-list f27-f4" *ngIf="!file.is_dir">{{file.size}}</p>
+        </div>
+        <b class="select-radio"  [class.active]="file.is_selected" *ngIf="isEditModel"></b>
+    </div>
+</ion-list>
+
+<ion-row margin-left *ngIf="!isListView">
+    <ion-col col-4 *ngFor="let file of fileList"
+             (click)="enterTheFolder($event,file)"
+             col-sm-2 col-md-2 col-lg-2 col-xl-3
+             ion-text text-center>
+        <div class="block-view-file">
+            <span *ngIf="file.ext_type !='image'">
+                                <span *ngIf="file.chn == 0 || file.chn == -1"
+                                      class="file-icon icon-file-l-{{file.ext_type}}"></span>
+                                <span *ngIf="file.chn == 1 && file.is_dir == 1"
+                                      class="file-icon icon-file-l-share"></span>
+                                <span *ngIf="file.chn == 2 && file.is_dir == 1 "
+                                      class="file-icon icon-file-l-chat"></span>
+                                <span *ngIf="file.chn == 3 && file.is_dir == 1"
+                                      class="file-icon icon-file-l-mission"></span>
+            </span>
+            <img *ngIf="file.ext_type =='image'" class="file-image selectBtn"
+                 src="{{file.thumb_l ? config.resourceFolderDomain + file.thumb_l : ''}}">
+            <ion-icon class="icon-starred"  name="star" *ngIf="file.is_starred"></ion-icon>
+            <b class="select-radio"  [class.active]="file.is_selected" *ngIf="isEditModel"></b>
+            <h3 class="f5-f" title="{{file.name}}">{{file.name}}</h3>
+            <span class="file-child f27-f4" *ngIf="file.is_dir">{{file.child}} files</span>
+            <span class="file-child f27-f4" *ngIf="!file.is_dir">{{file.size}}</span>
+        </div>
+    </ion-col>
+</ion-row>
+
+
+
+
+

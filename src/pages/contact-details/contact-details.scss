@@ -1,0 +1,200 @@
+page-contact-details {
+  .g-contact-height350{
+    max-height: 350px;
+    overflow-y: auto;
+    width: calc(100vw - 97px);
+    overflow-x: hidden;
+  }
+  .g-contact-height400{
+    max-height: 400px;
+    overflow-y: auto;
+    width: calc(100vw - 97px);
+    overflow-x: hidden;
+  }
+  .contact-detail-left-title{
+    line-height:20px!important;
+  }
+  .scroll-content{
+    padding:0!important;
+  }
+  .contact-detail-content{
+    float: left;
+  }
+  .contact-detail-tab-height{
+    height:calc(100% - 76px)!important;
+  }
+  .contact-detail-tab{
+    display: block!important;
+    position: relative;
+    width: 80px;
+    float: left;
+    height:100%;
+    .segment-button{
+      text-transform: none;
+      height:33%;
+      display: block!important;
+      width:80px;
+      background-color: #f8f7f7!important;
+      border:none;
+      color: #080808!important;
+      &.segment-activated{
+        background-color: #fff!important;
+        font-style:italic!important;
+      }
+      span{
+        display: block;
+        margin-top:45px;
+        &::before{
+          font-size:20px;
+        }
+      }
+    }
+  }
+  .contact-no-slide{
+    width:100%;
+    height:66px;
+    margin-left:10px;
+    margin-top: 10px;
+    > div{
+      margin-right:10px;
+    }
+    ion-card{
+      width:80px;
+      height: 60px;
+      margin:0;
+      text-align: center;
+      border-radius: 4px;
+      span{
+        margin-top:10px;
+        display: block;
+        &::before{
+          font-size: 24px;
+          color: #a4a6ba;
+        }
+      }
+    }
+  }
+  .contact-detail-slides{
+    margin-top:10px;
+    ion-slide{
+      display: block;
+      width:90px!important;
+      height: 60px;
+      ion-card{
+        width:80px;
+        height: 60px;
+        margin:0;
+        text-align: center;
+        border-radius: 4px;
+        span{
+          margin-top:10px;
+          display: block;
+          &::before{
+            font-size: 24px;
+            color: #a4a6ba;
+          }
+        }
+      }
+    }
+  }
+  ion-navbar{
+    position: relative;
+    .contact-detail-mask{
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,.2);
+      z-index:1;
+    }
+    .contact-detail-info{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+    }
+    ion-card{
+      position: absolute;
+    }
+  }
+
+  .toolbar{
+    padding: 0;
+  }
+
+  .toolbar-content {
+    margin: 0;
+  }
+
+  $base-card-padding: 58px;
+  .card-background-page {
+    position: relative;
+    height: 265px;
+    margin: -$base-card-padding 0 0;
+    width: 100%;
+    text-align: left;
+
+    .bi-toolbar{
+      position:absolute;
+      background:transparent;
+      top: $base-card-padding;
+      height:100%!important;
+    }
+
+    .bi-back-button {
+      position: absolute;
+      top:20px;
+      left:20px;
+      transform: rotate(90deg);
+      color: #fff;
+      &::before{
+        font-size:14px;
+      }
+    }
+    .bi-edit-button{
+      position: absolute;
+      top:20px;
+      right:20px;
+      &::before{
+        font-size:20px;
+        color: #fff;
+      }
+    }
+    .card-title {
+      position: absolute;
+      padding-left: 20px;
+      top: 82%;
+      width: 100%;
+      span{
+        display: inline-block;
+        width:9px;
+        height:9px;
+        border-radius: 100%;
+        position: relative;
+        top:1px;
+        &.online{
+          background: #37D783;
+        }
+        &.offline{
+          background: #fff;
+        }
+      }
+    }
+
+    .card-subtitle {
+      position: absolute;
+      padding-left: 32px;
+      top: 90%;
+      width: 100%;
+    }
+  }
+}
+
+page-qr-scanner {
+  ion-content {
+    background: transparent !important;
+  }
+}

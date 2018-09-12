@@ -1,0 +1,89 @@
+<!-- Generated template for the ContactIntroComponent component -->
+<div class="contact-intro">
+  <div class="personal-general-title f7-f">BASIC INFORMATION</div>
+  <div class="personal-general-content">
+    <div class="personal-general-work-name">
+      <div class="f9-f">BUSINESS NAME</div>
+      <div class="f19-f g-max-width90">{{general.name}}</div>
+      <div class="f19-f g-no-data-color" *ngIf="general.name == ''">No Data</div>
+    </div>
+    <div class="personal-general-work-name">
+      <div class="f9-f">INDUSTRY</div>
+      <div class="f19-f g-max-width90">{{general.industry}}</div>
+      <div class="f19-f g-no-data-color" *ngIf="general.industry == ''">No Data</div>
+    </div>
+    <div class="personal-general-work-name">
+      <div class="f9-f">FOUND</div>
+      <div class="f19-f g-max-width90">{{general.found_date}}</div>
+      <div class="f19-f g-no-data-color" *ngIf="general.found_date == ''">No Data</div>
+    </div>
+    <div class="personal-general-work-name">
+      <div class="f9-f">CURRENT STAFF AMOUNT</div>
+      <div class="f19-f g-max-width90">{{general.amount_employee}}</div>
+      <div class="f19-f g-no-data-color" *ngIf="general.amount_employee == -1">No Data</div>
+    </div>
+    <div class="personal-general-work-name">
+      <div class="f9-f">CURRENT DEPARTMENT AMOUNT</div>
+      <div class="f19-f g-max-width90">{{general.amount_dept}}</div>
+      <div class="f19-f g-no-data-color" *ngIf="general.amount_dept == -1">No Data</div>
+    </div>
+    <div class="personal-general-work-name">
+      <div class="f9-f">SPECIFICATION</div>
+      <div class="f19-f g-max-width90">{{general.description}}</div>
+      <div class="f19-f g-no-data-color" *ngIf="general.description == ''">No Data</div>
+    </div>
+    <div class="personal-general-title f7-f">PRIVACY INFORMATION</div>
+    <div class="personal-general-content">
+      <div class="personal-general-work-name">
+        <div class="f9-f">OWNER</div>
+        <div *ngFor="let owner of privacy.owner">
+          <div class="f19-f g-max-width90">
+            <img class="g-user-profile24 pro-profile" src="{{config.resourceDomain}}{{owner.user_profile_path}}" alt="">
+            <span>{{owner.work_name}}</span>
+          </div>
+        </div>
+        <div class="f19-f g-no-data-color" *ngIf="privacy.owner.length == 0">No Data</div>
+      </div>
+      <div class="personal-general-work-name">
+        <div class="f9-f">SHARE HOLDER</div>
+        <div *ngFor="let share_holder of privacy.share_holder">
+          <div class="f19-f g-max-width90">
+            <img class="g-user-profile24 pro-profile" src="{{config.resourceDomain}}{{share_holder.user_profile_path}}" alt="">
+            <span>{{share_holder.work_name}}</span>
+          </div>
+        </div>
+        <div class="f19-f g-no-data-color" *ngIf="privacy.share_holder.length == 0">No Data</div>
+      </div>
+      <div class="personal-general-work-name">
+        <div class="f9-f">MAIN ADMIN</div>
+        <div *ngFor="let structure_admin of privacy.structure_admin">
+          <div class="f19-f g-max-width90">
+            <img class="g-user-profile24 pro-profile" src="{{config.resourceDomain}}{{structure_admin.user_profile_path}}" alt="">
+            <span>{{structure_admin.work_name}}</span>
+          </div>
+        </div>
+        <div class="f19-f g-no-data-color" *ngIf="privacy.structure_admin.length == 0">No Data</div>
+      </div>
+      <div class="personal-general-work-name">
+        <div class="f9-f">BUILDER</div>
+        <div *ngFor="let builder of privacy.builder">
+          <div class="f19-f g-max-width90">
+            <img class="g-user-profile24 pro-profile" src="{{config.resourceDomain}}{{builder.user_profile_path}}" alt="">
+            <span>{{builder.work_name}}</span>
+          </div>
+        </div>
+        <div class="f19-f g-no-data-color" *ngIf="privacy.builder.length == 0">No Data</div>
+      </div>
+      <div class="personal-general-work-name">
+        <div class="f9-f">BUSINESS ADDRESS</div>
+        <div class="f19-f g-max-width90">{{privacy.address}}</div>
+        <div class="f19-f g-no-data-color" *ngIf="privacy.address == ''">No Data</div>
+      </div>
+      <div class="personal-general-work-name">
+        <div class="f9-f">PARENT COMPANY</div>
+        <div class="f19-f g-max-width90">{{privacy.parent.name}}</div>
+        <div class="f19-f g-no-data-color" *ngIf="privacy.parent.name == ''">No Data</div>
+      </div>
+    </div>
+  </div>
+</div>

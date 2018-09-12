@@ -1,0 +1,17 @@
+contact-resume {
+  .personal-general-title{
+    height:30px;
+    background-color: #f8f7f7;
+    width:calc(100vw - 112px);
+    line-height:30px;
+    padding-left:10px;
+  }
+  .personal-general-work-name{
+    margin-bottom:20px;
+    >div{
+      &:nth-child(1){
+        margin:12px 0 5px 0;
+      }
+    }
+  }
+}

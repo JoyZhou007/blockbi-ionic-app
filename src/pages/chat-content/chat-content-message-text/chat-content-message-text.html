@@ -1,0 +1,33 @@
+<!-- Generated template for the ChatContentMessageTextComponent component -->
+<div class="common-message" *ngIf="messageObj"
+     [class.self-message]="messageObj?.isSelf"
+     [class.other-message]="!messageObj?.isSelf"
+>
+    <img class="user-avatar"
+         src="{{messageObj?.user_info?.user_profile_path? appConfig.resourceDomain+messageObj?.user_info?.user_profile_path:''}}">
+    <div class="user-name">
+        <span>{{messageObj?.user_info?.work_name}}</span>
+        <!--<span class="bi-icon-resume user-state"></span>-->
+        <chat-user-state
+                *ngIf="channelInfo.form == userConfig.USER_FORM_COMPANY"
+                [setUserState]="messageObj?.user_info">
+        </chat-user-state>
+        <span class="message-time">{{messageObj?.date_time}}</span>
+    </div>
+    <div class="message-text" *ngIf="!isForwardMessage" [innerHTML]="messageObj.safeMsg">
+        <!--{{messageObj?.msg}}-->
+    </div>
+    <div *ngIf="isForwardMessage">
+        <div class="message-text">
+            <span>Forward</span>
+        </div>
+        <div class="forward-message-owner">
+            <span class="bi-icon-forward"></span>
+            <img src="{{originalMessageOwner?.user_profile_path? appConfig.resourceDomain + originalMessageOwner?.user_profile_path:''}}">
+            <span class="forward-message-name">{{originalMessageOwner?.work_name}}</span>
+        </div>
+        <div class="forward-message-text">
+            <span [innerHTML]="originalMessageObj.safeMsg"></span>
+        </div>
+    </div>
+</div>

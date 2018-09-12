@@ -1,0 +1,43 @@
+page-chat-content-more {
+  .chat-content-more-title{
+    text-align: center;
+    font-size: 15px;
+    color: #080808;
+    font-weight: bold;
+    .toolbar-background{
+      background-color: #ffffff !important;
+      border: none;
+    }
+    .bi-icon-esc{
+      position: absolute;
+      right: 22px;
+      font-size: 10px;
+      color: #9193AB;
+      font-weight: normal;
+      &::before{
+        font-size: 14px;
+      }
+    }
+  }
+  .chat-more-content{
+    text-align: center;
+    ion-list{
+      botton{
+        height: 59px;
+        line-height: 59px;
+      }
+      .item-inner{
+        background-image:none !important
+      }
+      .item-block:first-child{
+        border-top:none !important;
+      }
+      .item-block:last-child{
+        border-bottom:none !important;
+        .item-inner{
+          border-bottom:0.55px solid #c8c7cc !important;
+        }
+      }
+    }
+  }
+}

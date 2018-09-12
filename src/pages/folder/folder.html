@@ -1,0 +1,98 @@
+<ion-header class="folder-header">
+    <ion-navbar  class="g-header clearfix">
+        <bi-logo *ngIf="isTopFolder"></bi-logo>
+        <span class="bi-icon-down back" navPop
+              *ngIf="!isTopFolder"
+              (click)="backUpperFolder($event)">
+        </span>
+        <span class="g-header-title"> {{ isTopFolder? (currentForm == 1? 'PERSONAL' : 'BUSINESS'):currentFileObj.name}}</span>
+    </ion-navbar>
+    <ion-segment class="folder-type" *ngIf="isTopFolder">
+        <ion-segment-button class="folder-type-btn" [class.active]="currentForm == 1"
+                            (click)="switchFolderType($event,1)">
+            <div class="bi-icon-personal"></div>
+            <div class="f3-f">Personal</div>
+        </ion-segment-button>
+        <ion-segment-button class="folder-type-btn" [class.active]="currentForm == 2"
+                            (click)="switchFolderType($event,2)">
+            <div class="bi-icon-business"></div>
+            <div class="f3-f">Business</div>
+        </ion-segment-button>
+    </ion-segment>
+
+    <!--菜单栏部分-->
+    <ion-row class="folder-ion-row" margin-top>
+        <ion-col (click)="switchEditModel($event)">
+            <ion-buttons start>
+                <div class="folder-create">
+                     <span class="bi-icon-active-tab"></span>
+                </div>
+            </ion-buttons>
+        </ion-col>
+        <ion-col col-8>
+            <ion-segment>
+                <ion-segment-button value="new" checked>
+                    Last updated
+                </ion-segment-button>
+                <ion-segment-button value="hot">
+                    Last updated
+                </ion-segment-button>
+            </ion-segment>
+        </ion-col>
+        <ion-col>
+            <ion-buttons end (click)="switchViewType($event)">
+                <div class="folder-lis folder-create">
+                    <span class="bi-icon-general"></span>
+                </div>
+            </ion-buttons>
+        </ion-col>
+    </ion-row>
+</ion-header>
+<ion-content padding [class.not-top]="!isTopFolder" class="folder-content">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <folder-content
+            #folderContent
+            [refresh]="isRefresh"
+            (outputShowOpBtn)="showOpBtn($event)"
+            (outputEnterFolder)="enterTheFolder($event)">
+    </folder-content>
+</ion-content>
+
+
+<ion-footer class="folder-footer" [class.active]="isShowOpBtn">
+    <ion-toolbar class="folder-footer-toobar">
+        <ion-row margin-left margin-right text-center>
+            <ion-col col-2>
+                <ion-icon name="albums"></ion-icon>
+                <span>transfer</span>
+            </ion-col>
+            <ion-col col-2>
+                <ion-icon name="appstore"></ion-icon>
+                <span>share</span>
+            </ion-col>
+            <ion-col col-2>
+                <ion-icon name="bookmark"></ion-icon>
+                <span>copy</span>
+            </ion-col>
+            <ion-col col-2>
+                <ion-icon name="build"></ion-icon>
+                <span>move</span>
+            </ion-col>
+            <ion-col col-2 (click)="pinTheFile($event)">
+                <ion-icon name="call"></ion-icon>
+                <span>pin</span>
+            </ion-col>
+            <ion-col col-2 (click)="deleteTheFile($event)">
+                <ion-icon name="clipboard"></ion-icon>
+                <span>delete</span>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>

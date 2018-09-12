@@ -1,0 +1,82 @@
+
+<!-- 左侧菜单 -->
+<ion-menu #sideMenu [content]="myContent" (ionOpen)="mainMenuOpened()">
+    <ion-slides #slides zoom="false" pager="true" *ngIf="menuHasOpened" (ionSlideDidChange)="slideChanged($event)">
+        <!-- 主菜单 -->
+        <ion-slide id="slide-nav">
+            <ion-list-header class="bi-list-header" *ngIf="userInfo">
+                <ion-avatar item-start>
+                    <img style="width:60px; height:60px;"
+                         src="{{userInfo.user_profile_path}}" alt="{{userInfo.work_name}}"/>
+                </ion-avatar>
+                <h2>{{userInfo.work_name}}</h2>
+                <p *ngIf="userCompanyInfo">{{userCompanyInfo.p_name}}</p>
+                <p *ngIf="userCompanyInfo" (click)="switchCompany($event)">{{userCompanyInfo.company_name}}</p>
+            </ion-list-header>
+            <ion-list class="bi-list">
+                <button ion-item no-lines>
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    PERSONAL PROFILE
+                </button>
+                <button ion-item no-lines>
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    ATTENTION
+                </button>
+            </ion-list>
+            <ion-list class="bi-list">
+                <button ion-item no-lines (click)="openContactList()">
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    CONTACT LIST
+                </button>
+                <button ion-item no-lines>
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    LANGUAGE
+                </button>
+            </ion-list>
+            <ion-list class="bi-list">
+                <button ion-item no-lines>
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    BUSINESS PROFILE
+                </button>
+                <button ion-item no-lines>
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    BUSINESS FUNCTION
+                </button>
+                <button ion-item no-lines>
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    CREATE BUSINESS
+                </button>
+            </ion-list>
+            <ion-list class="bi-list">
+                <button ion-item no-lines>
+                    <ion-icon name="leaf" item-start></ion-icon>
+                    SETTING
+                </button>
+            </ion-list>
+        </ion-slide>
+        <!-- 联系人列表 -->
+        <ion-slide id="slide-contact-list" *ngIf="contactListInit">
+            <ion-header>
+                <ion-navbar>
+                    <ion-searchbar (ionInput)="filterContactList($event)"></ion-searchbar>
+                </ion-navbar>
+            </ion-header>
+            <ion-content style="height:100vh;">
+                <ion-list *ngFor="let groupKey of contactListKeys">
+                    <ion-item-divider>{{groupKey}}({{contactList[groupKey].length}})</ion-item-divider>
+                    <bi-profile *ngFor="let contact of contactList[groupKey]" [contact]="contact" [group]="groupKey"></bi-profile>
+                </ion-list>
+            </ion-content>
+        </ion-slide>
+        <!-- 待招聘列表 -->
+        <ion-slide id="slide-hire-list">
+            <h1 style="width: auto;max-width: 100%;">Slide 3</h1>
+        </ion-slide>
+
+    </ion-slides>
+</ion-menu>
+
+<!-- 右侧菜单 全局设置 -->
+<ion-menu side="right" [content]="myContent" (ionOpen)="settingMenuOpened()">
+    <p>settings</p>
+</ion-menu>

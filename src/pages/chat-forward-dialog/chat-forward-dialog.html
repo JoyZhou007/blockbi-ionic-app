@@ -1,0 +1,68 @@
+<ion-header class="g-header">
+    <ion-navbar class="g-header clearfix">
+        <span class="bi-icon-down back" navPop></span>
+        <span class="g-header-title">FORWARD</span>
+    </ion-navbar>
+    <ion-segment class="g-ion-segment g-margin-top10"
+                 *ngIf="currentForm == 1">
+        <ion-segment-button
+                [class.active]="currentType == 5"
+                (click)="switchNewChannelType($event,5)">
+            <div class=" bi-icon-friend"></div>
+            <div class="f3-f">Friend</div>
+        </ion-segment-button>
+        <ion-segment-button
+                [class.active]="currentType == 6"
+                (click)="switchNewChannelType($event,6)">
+            <div class=" bi-icon-in-private"></div>
+            <div class="f3-f">In private</div>
+        </ion-segment-button>
+    </ion-segment>
+    <ion-segment class="g-ion-segment g-margin-top10" *ngIf="currentForm == 2">
+        <ion-segment-button
+                [class.active]="currentType == 1"
+                (click)="switchNewChannelType($event,1)">
+            <div class=" bi-icon-internal"></div>
+            <div class="f3-f">Internal</div>
+        </ion-segment-button>
+        <ion-segment-button
+                [class.active]="currentType == 2"
+                (click)="switchNewChannelType($event,2)">
+            <div class=" bi-icon-cooperator"></div>
+            <div class="f3-f">Cooperator</div>
+        </ion-segment-button>
+        <ion-segment-button
+                [class.active]="currentType == 3"
+                (click)="switchNewChannelType($event,3)">
+            <div class="bi-icon-business1"></div>
+            <div class="f3-f">Business</div>
+        </ion-segment-button>
+        <ion-segment-button
+                [class.active]="currentType == 4"
+                (click)="switchNewChannelType($event,4)">
+            <div class=" bi-icon-mission"></div>
+            <div class="f3-f">Mission</div>
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+
+<ion-content padding>
+    <div class="g-list54">
+        <ion-list>
+            <ion-item *ngFor="let item of currentList;let i = index"
+                      (click)="forwardToTheChannel(item)"
+                      class="group-list" no-padding>
+                <img class="g-user-profile34"
+                     src="{{appConfig.resourceDomain + item.user_profile_path}}"
+                     *ngIf="isFriend">
+                <p class="icon-mission" *ngIf="!isFriend && item.is_mission == 1 ">M</p>
+                <p class="icon-private" *ngIf="!isFriend && item.is_mission == 0 && item.form == 1">P</p>
+                <p class="icon-business" *ngIf="!isFriend && item.is_mission == 0 && item.form == 2">B</p>
+                <h2 margin-left>{{isFriend? item.work_name : item.name}}</h2>
+                <span>{{item.p_name? item.p_name : ''}}</span>
+            </ion-item>
+        </ion-list>
+    </div>
+
+</ion-content>

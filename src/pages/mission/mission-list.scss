@@ -1,0 +1,126 @@
+.mission-content {
+  .mission-progress {
+    height: 70px;
+    border: 1px solid $c9-c;
+    border-left: none;
+    border-radius: 0 !important;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  .segment-ios{
+    .mission-progress {
+      border-top: none;
+    }
+  }
+  .mission-progress-tit {
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 6px;
+    color: $b2-c;
+  }
+  .bi-icon-to-do,
+  .bi-icon-doing,
+  .bi-icon-done {
+    display: block;
+    margin-top: 10px;
+    &:before {
+      font-size: 36px;
+      color: $b2-c;
+    }
+  }
+  .segment-ios-primary .segment-button.segment-activated,
+  .segment-md-primary .segment-button.segment-activated{
+    background-color: $main-c;
+  }
+  .type-slide {
+    box-sizing: border-box;
+    padding-top: 12px;
+    height: 60px;
+    width: 80px !important;
+    box-shadow: 0 2px 6px 0 $c19-c-8;
+    margin-right: 10px;
+    //padding: 12px 0 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(171, 171, 171, 0.2);
+    .mission-progress-tit {
+      margin-top: 0;
+    }
+  }
+  .type-slide-active {
+    background-color: $main-c;
+    color: $write;
+    .mission-progress-tit {
+      color: $write;
+    }
+    .bi-icon-ctrl {
+      &:before {
+        color: $write;
+      }
+    }
+  }
+  .type-menu {
+    width: 100%;
+    height: 65px;
+    margin-top: 5px;
+  }
+
+  .tips-title {
+    color: #9193ab;
+    margin-right: 5px;
+  }
+  .label-md {
+    margin: 0 !important;
+  }
+  .time-day {
+    font-size: 26px;
+    float: left;
+    margin-right: 3px;
+  }
+  .time-hour {
+    float: left;
+    p {
+      font-size: 12px;
+      line-height: 14px;
+    }
+  }
+  .time-icon {
+    width: 32px;
+    span {
+      display: inline-block;
+      transform: rotate(-90deg);
+    }
+  }
+  .mission-progress {
+    svg {
+      width: 100%;
+      height: 30px;
+    }
+  }
+  .bi-icon-ctrl {
+    &:before {
+      font-size: 24px;
+      color: $c19-c-9;
+    }
+  }
+
+  .segment-activated {
+    .mission-progress-tit {
+      color: $write;
+    }
+    .bi-icon-to-do,
+    .bi-icon-doing,
+    .bi-icon-done {
+      &:before {
+        color: $write;
+      }
+    }
+  }
+  .card-ios,
+  .card-md{
+    margin: 10px 20px 10px 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+

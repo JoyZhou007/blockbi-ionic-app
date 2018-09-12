@@ -1,0 +1,31 @@
+page-chat-content-message-detail {
+  ion-footer {
+    .chat-detail-function {
+      height: 50px;
+      display: flex;
+      & > div {
+        flex: 1;
+        text-align: center;
+        b {
+          display: block;
+          margin-top: 9px;
+          &:before {
+            font-size: 21px;
+            color: $b2-c;
+          }
+          &.bi-icon-remove:before {
+            color: $c20-c-1;
+          }
+        }
+        span {
+          margin-top: 4px;
+          display: block;
+          color: $b2-c;
+          font-size: 11px;
+        }
+      }
+
+    }
+  }
+
+}

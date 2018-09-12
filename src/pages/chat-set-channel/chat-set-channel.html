@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar class="g-header clearfix">
+        <span class="bi-icon-down back" navPop></span>
+        <span class="g-header-title">SET CHAT CHANNEL</span>
+        <span class="send send-done" (click)="confirmSetChannel($event)">DONE</span>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="chat-set-content">
+    <ion-item no-padding no-lines>
+        <ion-label stacked>CHANNEL NAME</ion-label>
+        <ion-input type="text" [(ngModel)]="currentChannelName"></ion-input>
+    </ion-item>
+    <div *ngIf="!currentChannelName" text-left
+         class="input-error-msg ">
+        Channel Name cannot be empty!
+    </div>
+    <ion-item no-padding no-lines class="chat-set-invite">
+        <ion-label>
+            <div>INVITATION PERMISSION</div>
+            <div>Allow person who is not the host invite others</div>
+        </ion-label>
+        <ion-toggle color="secondary" [(ngModel)]="isAllowInvite"></ion-toggle>
+    </ion-item>
+</ion-content>

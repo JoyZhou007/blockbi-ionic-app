@@ -1,0 +1,173 @@
+folder-content {
+  .block-view-file {
+    width: 82px;
+    height: 115px;
+    margin-bottom: 26px;
+    position: relative;
+    .file-icon {
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin-left: 11px;
+      &.icon-file-l-chat {
+        background: url("/assets/image/icon.png") -553px  -10px no-repeat !important;
+      }
+      &.icon-file-l-mission {
+        background: url("/assets/image/icon.png") -721px  -10px no-repeat !important;
+      }
+      &.icon-file-l-post {
+        background: url("/assets/image/icon.png") -466px  -6px no-repeat !important;
+      }
+      &.icon-file-l-share {
+        background: url("/assets/image/icon.png") -801px  -10px no-repeat !important;
+      }
+      &.icon-file-l-folder {
+        background: url("/assets/image/icon.png") -634px  -10px no-repeat !important;
+      }
+      &.icon-file-l-excel {
+        background: url("/assets/image/icon.png") -201px  -10px no-repeat !important;
+      }
+      &.icon-file-l-word {
+        background: url("/assets/image/icon.png") -139px  -10px no-repeat !important;
+      }
+      &.icon-file-l-pdf {
+        background: url("/assets/image/icon.png") -78px  -10px no-repeat !important;
+      }
+      &.icon-file-l-ppt {
+        background: url("/assets/image/icon.png") -258px  -10px no-repeat !important;
+      }
+      &.icon-file-l-information {
+        background: url("/assets/image/icon.png") -395px  -10px no-repeat !important;
+      }
+      &.icon-file-l-analysis {
+        background: url("/assets/image/icon.png") -23px  -10px no-repeat !important;
+      }
+      &.icon-file-l-other {
+        background: url("/assets/image/icon.png") -323px  -10px no-repeat !important;
+      }
+    }
+    h3 {
+      width: 50px;
+      height: 15px;
+      text-align: center;
+      line-height: 12px;
+      margin-left: 16px;
+      margin-top: 8px;
+      margin-bottom: 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .file-child {
+      width: 82px;
+      margin-left: 0;
+      margin-top: 8px;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    .icon-starred{
+      position: absolute;
+      top:50px;
+      left: 34px;
+    }
+    .select-radio{
+      top: 8px;
+      left: 35px;
+      background: #ffffff;
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 50%;
+      border: 1px solid #ABABAB;
+      &.active{
+        background: #488aff;
+      }
+    }
+  }
+
+  .list-file-view {
+    position: relative;
+    height: 44px;
+    border-top:none !important;
+    .list-file-icon {
+      width: 40px;
+      height: 38px;
+      display: inline-block;
+      float: left;
+      &.icon-file-s-chat {
+        background: url("/assets/image/icon.png") -695px  -122px no-repeat !important;
+      }
+      &.icon-file-s-mission {
+        background: url("/assets/image/icon.png") -752px  -120px no-repeat !important;
+      }
+      &.icon-file-s-post {
+        background: url("/assets/image/icon.png") -563px  -128px no-repeat !important;
+      }
+      &.icon-file-s-share {
+        background: url("/assets/image/icon.png") -818px  -120px no-repeat !important;
+      }
+      &.icon-file-s-folder {
+        background: url("/assets/image/icon.png") -633px  -122px no-repeat !important;
+      }
+      &.icon-file-s-excel {
+        background: url("/assets/image/icon.png") -158px  -128px no-repeat !important;
+      }
+      &.icon-file-s-word {
+        background: url("/assets/image/icon.png") -217px  -128px no-repeat !important;
+      }
+      &.icon-file-s-pdf {
+        background: url("/assets/image/icon.png") -342px  -128px no-repeat !important;
+      }
+      &.icon-file-s-ppt {
+        background: url("/assets/image/icon.png") -279px  -128px no-repeat !important;
+      }
+      &.icon-file-s-information {
+        background: url("/assets/image/icon.png") -484px  -128px no-repeat !important;
+      }
+      &.icon-file-s-analysis {
+        background: url("/assets/image/icon.png") -116px  -128px no-repeat !important;
+      }
+      &.icon-file-s-other {
+        background: url("/assets/image/icon.png") -415px  -128px no-repeat !important;
+      }
+    }
+    img {
+      width: 40px;
+      height: 38px;
+      float: left;
+    }
+    .file-name {
+      width: 100px;
+      height: 31px;
+      display: inline-block;
+      margin-left: 19px;
+      float: left;
+      .file-list-name {
+        height: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .file-child-list {
+        margin-top: 5px;
+      }
+    }
+    .select-radio{
+      right: 0;
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 50%;
+      border: 1px solid #ABABAB;
+      top:16px;
+      &.active{
+        background: #488aff;
+      }
+    }
+  }
+
+}

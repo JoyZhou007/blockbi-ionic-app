@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <bi-logo></bi-logo>
+        <bi-notice></bi-notice>
+        <bi-search></bi-search>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+                pullingIcon="arrow-dropdown"
+                pullingText="Pull to refresh"
+                refreshingSpinner="circles"
+                refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+
+    Welcome: {{currentUser}}
+
+    <div *ngIf="currentUser">
+        <button ion-button color="light" (click)="doLogout()">logout</button>
+    </div>
+    <button ion-button menuToggle>Toggle Menu</button>
+    <home-tips #tipComponent [refresh]="isRefresh"></home-tips>
+</ion-content>

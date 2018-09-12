@@ -1,0 +1,217 @@
+chat-content-message-img {
+  .img-message {
+    position: relative;
+    margin-top: 10px;
+    clear: both;
+    //float: left;
+    &.other-message {
+      .user-avatar {
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 4px;
+      }
+      .user-name {
+        margin-left: 44px;
+        margin-top: 0;
+        height: 20px;
+        span {
+          float: left;
+          &:first-child {
+            color: #4B4C63;
+            font-weight: bold;
+            font-size: 12px;
+          }
+          &.user-state {
+            margin-left: 8px;
+            &:before {
+              font-size: 14px;
+            }
+          }
+          &.message-time {
+            margin-left: 8px;
+            color: #9193AB;
+            font-size: 10px;
+          }
+        }
+      }
+      .file-name {
+        margin-left: 44px;
+        max-width: 100%;
+        height: 15px;
+        span {
+          height: 15px;
+          float: left;
+          display: inline-block;
+          font-size: 11px;
+          &:first-child {
+            color: #9193AB;
+          }
+          &:last-child {
+            color: #5E66D1;
+            font-size: 11px;
+            margin-left: 13px;
+            font-weight: bold;
+            max-width: calc(100% - 90px);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      .message-image {
+        margin-top: 5px;
+        width: calc(100% - 80px);
+        img {
+          max-width: 100%;
+        }
+      }
+      .message-text {
+        margin-left: 44px;
+        width: calc(100% - 100px);
+        text-align: left;
+      }
+      .forward-message-owner {
+        margin-top: 5px;
+        height: 30px;
+        .bi-icon-forward {
+          float: left;
+          margin-top: 5px;
+          margin-left: 20px;
+          &:before {
+            font-size: 10px;
+            color: #9193ab;
+          }
+        }
+        img {
+          width: 26px;
+          height: 26px;
+          border-radius: 4px;
+          margin-left: 10px;
+          float: left;
+        }
+        .user-name {
+          margin-left: 80px;
+        }
+        .file-name {
+          margin-left: 80px;
+        }
+      }
+      .forward-message-text {
+        margin-left: 40px;
+        margin-top: 10px;
+        width: calc(100% - 80px);
+        text-align: right;
+      }
+
+    }
+
+    &.self-message {
+      clear: both;
+      .user-avatar {
+        width: 34px;
+        height: 34px;
+        position: absolute;
+        left: calc(100% - 34px);
+        top: 0;
+        border-radius: 4px;
+      }
+      .user-name {
+        margin-right: 44px;
+        margin-top: 0;
+        height: 20px;
+        span {
+          float: right;
+          &:first-child {
+            color: #4B4C63;
+            font-weight: bold;
+          }
+          &.user-state {
+            margin-right: 8px;
+            &:before {
+              font-size: 14px;
+            }
+          }
+          &.message-time {
+            margin-right: 8px;
+            color: #9193AB;
+            font-size: 10px;
+          }
+        }
+      }
+      .file-name {
+        margin-right: 44px;
+        max-width: 100%;
+        height: 15px;
+        span {
+          height: 15px;
+          float: right;
+          display: inline-block;
+          font-size: 11px;
+          &:first-child {
+            color: #9193AB;
+          }
+          &:last-child {
+            color: #5E66D1;
+            font-size: 11px;
+            margin-right: 13px;
+            font-weight: bold;
+            max-width: calc(100% - 90px);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      .message-image {
+        margin-top: 5px;
+        width: calc(100% - 80px);
+        margin-left: 80px;
+        text-align: right;
+        img {
+          max-width: 100%;
+        }
+      }
+      .message-text {
+        margin-right: 44px;
+        width: calc(100% - 90px);
+        text-align: right;
+      }
+      .forward-message-owner {
+        margin-top: 5px;
+        height: 30px;
+        .bi-icon-forward {
+          float: right;
+          margin-top: 5px;
+          margin-right: 10px;
+          transform: rotate(180deg);
+          &:before {
+            font-size: 10px;
+            color: #9193ab;
+          }
+        }
+        img {
+          width: 26px;
+          height: 26px;
+          border-radius: 4px;
+          margin-right: 10px;
+          float: right;
+        }
+        .user-name {
+          margin-right: 80px;
+        }
+        .file-name {
+          margin-right: 80px;
+        }
+      }
+      .forward-message-text {
+        margin-left: 40px;
+        margin-top: 10px;
+        width: calc(100% - 80px);
+        text-align: right;
+      }
+    }
+  }
+}

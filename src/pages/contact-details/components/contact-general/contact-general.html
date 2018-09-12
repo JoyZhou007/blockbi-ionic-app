@@ -1,0 +1,34 @@
+<!-- Generated template for the ContactGeneralComponent component -->
+<div>
+    <div class="personal-general-title f7-f">INDIVIDUAL INFORMATION</div>
+    <div class="personal-general-content">
+        <div class="personal-general-work-name">
+            <div class="f9-f">WORK NAME</div>
+            <div class="f19-f g-max-width90">{{individual.work_name}}</div>
+            <div class="f19-f g-no-data-color" *ngIf="individual.work_name == ''">No Data</div>
+        </div>
+        <div class="personal-general-phone personal-general-work-name">
+            <div class="f9-f">PERSONAL PHONE</div>
+            <div class="f19-f g-max-width90">{{individual.phone}}</div>
+            <div class="f19-f g-no-data-color" *ngIf="individual.phone == ''">No Data</div>
+        </div>
+        <div class="personal-general-job personal-general-work-name">
+            <div class="f9-f">CURRENT JOB</div>
+            <div *ngFor="let cp of company" class="f19-f">
+
+                <div class="g-max-width90">{{cp.company_name}}</div>
+                <div class="g-max-width90">
+                    <span *ngIf="cp.could_add && !isOwner"
+                          (click)="addNewCooperator($event,cp)"
+                          class="bi-icon-shape1 add-friend"></span>
+                    {{cp.p_name}}
+                </div>
+            </div>
+            <div *ngIf="(!noCompany && company.length == 0) || (noCompany && !individual.p_name)" class="f19-f g-no-data-color">
+                No Data
+            </div>
+            <div *ngIf = 'noCompany' class="g-max-width90">{{individual.p_name}}</div>
+        </div>
+    </div>
+
+</div>

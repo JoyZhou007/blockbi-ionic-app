@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar class="g-header clearfix">
+    <span class="bi-icon-down back" navPop></span>
+    <span class="g-header-title">INVITE MEMBER TO JOIN</span>
+    <span class="send " (click)="confirmInviteMember($event)">SEND</span>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="chat-invite-content">
+    <ion-list no-padding>
+      <ion-item no-padding>
+        <div class="chat-invites-lab">INVITEES</div>
+        <div class="chat-invites-div">
+          <div class="invite-people" *ngFor="let item of selectedPeopleArray">
+            <img src="{{item.imageLabel? appConfig.resourceDomain + item.imageLabel:''}}" alt="">
+            <span class="selected-people-name">{{item?.label}}</span>
+            <span class="selected-delete bi-icon-esc" (click)="deleteSelected($event,item)"></span>
+          </div>
+        </div>
+        <!--<ion-icon name="arrow-forward" (click)="showPublicSelect($event)" item-end></ion-icon>-->
+        <span class="bi-icon-arrow" (click)="showPublicSelect($event)"></span>
+      </ion-item>
+      <div *ngIf="!selectedPeopleArray.length && hasClickOnSend" text-left
+           class="input-error-msg ">
+        Must select at least one member!
+      </div>
+    </ion-list>
+</ion-content>
+
+<script type="text/javascript">
+
+  var arr = new Array(6)
+  arr[0] = "10"
+  arr[1] = "5"
+  arr[2] = "40"
+  arr[3] = "25"
+  arr[4] = "1000"
+  arr[5] = "1"
+
+  document.write(arr + "<br />")
+  document.write(arr.sort())
+
+</script>

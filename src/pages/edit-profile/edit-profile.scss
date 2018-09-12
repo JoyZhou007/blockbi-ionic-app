@@ -1,0 +1,124 @@
+page-edit-profile {
+  .scroll-content{
+    padding:0 16px 16px 16px!important;
+  }
+  .toolbar-ios{
+    padding-top: calc(20px + 4px);
+    min-height:64px;
+  }
+  .edit-profile-general{
+    margin-top:39px;
+  }
+
+  .item-cover {
+    display: none;
+  }
+  .edit-profile-name {
+    padding: 20px;
+    > div {
+      float: left;
+      &:nth-child(1) {
+        margin-right: 20px;
+        img {
+          width: 70px;
+          height: 70px;
+          border-radius: 4px;
+          display: block;
+        }
+      }
+      &:nth-child(2) {
+        width: calc(100vw - 130px);
+        > div {
+          margin-bottom: 5px;
+        }
+        input {
+          border: none;
+          width: 100%;
+          border-bottom: 1px solid rgba($c18-c-16, .5);
+          line-height: 22px;
+        }
+        .first-name {
+          width: calc(50% - 10px);
+          margin-right: 15px;
+        }
+        .last-name {
+          width: calc(50% - 10px);
+        }
+      }
+    }
+  }
+  .edit-profile-tab {
+    padding: 0 20px;
+    ion-segment-button {
+      width: 160px !important;
+      height: 60px !important;
+      padding: 0 !important;
+      border: none !important;
+      background: $write !important;
+      line-height: 60px !important;
+      color: $c18-c-48 !important;
+      border-radius: 4px !important;
+      box-shadow: 0 2px 6px $c19-c-8;
+      span::before {
+        font-size: 24px;
+      }
+      div {
+        position: relative;
+        top: -44px;
+        font-style: normal;
+      }
+      &.segment-activated {
+        background: $main-c !important;
+        >div, > span{
+          color: $write !important;
+        }
+      }
+      &:nth-child(1) {
+        margin-right: 15px !important;
+      }
+    }
+  }
+  .edit-profile-title {
+    line-height: 20px;
+    color: $b9-c;
+    border-bottom: 1px solid $c2-c-1;
+  }
+  .edit-profile-input {
+    margin-top: 9px;
+    input, ion-select {
+      max-width: 100%;
+      width: 100%;
+      border: none;
+      line-height: 20px;
+      padding: 0 0 13px 0 !important;
+      border-bottom: 1px solid $c2-c-1;
+      .select-icon-inner {
+        left: 0 !important;
+      }
+    }
+    ion-datetime{
+      max-width: 100%;
+      width: 100%;
+      line-height: 20px;
+      padding: 0 0 13px 0 !important;
+      border-bottom: 1px solid $c2-c-1;
+    }
+    .time-icon{
+      float: left;
+    }
+  }
+  .edit-profile-country {
+    margin-top: 19px;
+  }
+  .resume-education-title {
+    width: 100vw;
+    height: 30px;
+    line-height: 30px;
+    background: $c19-c-7;
+    position: relative;
+    padding-left: 16px;
+    left: -16px;
+    margin-top:12px;
+  }
+}
+

@@ -1,0 +1,126 @@
+<ion-header>
+    <ion-navbar>
+        <ion-card class="card-background-page">
+            <ion-item no-lines class="bi-toolbar">
+                <div class="contact-detail-mask"></div>
+                <div class="contact-detail-info">
+                    <span class="bi-icon-down bi-back-button" navPop bi-back-button></span>
+                    <span class="bi-icon-remove bi-edit-button" *ngIf="!isOwner"></span>
+                    <span class="bi-icon-edit bi-edit-button" *ngIf="isOwner" (click)="editProfile($event)"></span>
+                </div>
+            </ion-item>
+            <img src="{{bigSizeProfileImage}}"/>
+            <div>
+                <div class="card-title f12-f">
+                    <span [class.online]="contact && contact.hasOwnProperty('online') && contact.online == 1"
+                          [class.offline]="contact && contact.hasOwnProperty('online') && contact.online == 0"></span>
+                    {{contact?.work_name}}
+                </div>
+                <div class="card-subtitle f6-f">{{contact?.p_name}}</div>
+            </div>
+        </ion-card>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <!-- 可选功能 -->
+    <div *ngIf="!isOwner">
+        <ion-slides style="height: 66px;" #slides slidesPerView="{{slideActiveNum}}" loop *ngIf="slideActiveNum > 3"
+                      class="contact-detail-slides">
+        <ion-slide *ngIf="hasRelationship">
+            <ion-card (click)="onClickChat($event)" class="f3-f">
+                <span class="bi-icon-chat"></span>
+                Chat
+            </ion-card>
+
+        </ion-slide>
+        <ion-slide *ngIf="hasRelationship">
+            <ion-card (click)="onClickRecommend($event)" class="f3-f">
+                <span class="bi-icon-recommend"></span>
+                Recommend
+            </ion-card>
+        </ion-slide>
+        <ion-slide *ngIf="hasRelationship">
+            <ion-card class="f3-f">
+                <span class="bi-icon-in-common"></span>
+                In common
+            </ion-card>
+        </ion-slide>
+        <ion-slide *ngIf="couldAddRelation">
+            <ion-card class="f3-f" (click)="addFriend()">
+                <span class="bi-icon-relation"></span>
+                Relation
+            </ion-card>
+        </ion-slide>
+        <ion-slide *ngIf="couldHire">
+            <ion-card class="f3-f">
+                <span class="bi-icon-hire"></span>
+                Hire
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+        <div #slides *ngIf="slideActiveNum <= 3" class="contact-no-slide">
+            <div *ngIf="hasRelationship" float-left>
+                <ion-card class="f3-f" (click)="onClickChat($event)">
+                    <span class="bi-icon-chat"></span>
+                    Chat
+                </ion-card>
+            </div>
+            <div *ngIf="hasRelationship" float-left>
+                <ion-card class="f3-f" (click)="onClickRecommend($event)">
+                    <span class="bi-icon-recommend"></span>
+                    Recommend
+                </ion-card>
+            </div>
+            <div *ngIf="hasRelationship" float-left>
+                <ion-card class="f3-f">
+                    <span class="bi-icon-in-common"></span>
+                    In common
+                </ion-card>
+            </div>
+            <div *ngIf="couldHire" float-left>
+                <ion-card class="f3-f">
+                    <span class="bi-icon-hire"></span>
+                    Hire
+                </ion-card>
+            </div>
+            <div *ngIf="couldAddRelation" float-left>
+                <ion-card class="f3-f" (click)="addFriend()">
+                    <span class="bi-icon-relation"></span>
+                    Relation
+                </ion-card>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 可看菜单 -->
+    <ion-segment [(ngModel)]="activeModule" color="primary" class="contact-detail-tab" [class.contact-detail-tab-height]="!isOwner">
+        <ion-segment-button value="general" (ionSelect)="switchTabMenu($event)" class="f15-f">
+            <span class="bi-icon-general"></span>
+            General
+        </ion-segment-button>
+        <ion-segment-button *ngFor="let item of menuArr; let i = index;" value="{{item.api}}"
+                            (ionSelect)="switchTabMenu($event)" class="f15-f">
+            <span class="bi-icon-resume" *ngIf="item.title == 'Resume'">
+            </span>
+            <span class="bi-icon-personal-analysis" *ngIf="item.title == 'Analysis'">
+            </span>
+            <span class="bi-icon-business-analysis" *ngIf="item.title == 'Business analysis'">
+            </span>
+            <div class="contact-detail-left-title">{{item.title.split(' ')[0]}}</div>
+            <div class="contact-detail-left-title" *ngIf="item.title.split(' ')[1]">{{item.title.split(' ')[1]}}</div>
+        </ion-segment-button>
+    </ion-segment>
+    <div class="contact-detail-content" [class.g-contact-height350]="!isOwner" [class.g-contact-height400]="isOwner">
+        <!-- 具体内容展示 -->
+        <contact-general *ngIf="activeModule == 'general'" [currentContact]="contact"></contact-general>
+        <contact-resume *ngIf="activeModule == 'resume'" [currentContact]="contact"></contact-resume>
+        <contact-company-intro *ngIf="activeModule == 'introduction'" [currentContact]="contact"></contact-company-intro>
+        <contact-personal-analysis *ngIf="activeModule == 'analysis'" [currentContact]="contact"></contact-personal-analysis>
+        <contact-company-analysis *ngIf="activeModule == 'company_analysis'"></contact-company-analysis>
+    </div>
+
+</ion-content>

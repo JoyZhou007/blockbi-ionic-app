@@ -1,0 +1,15 @@
+{
+  "name": "bi",
+  "app_id": "347518e4",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://devapi.blockbi.com/api",
+      "changeOrigin": true
+    }
+  ]
+}

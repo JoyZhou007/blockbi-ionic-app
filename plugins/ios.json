@@ -1,0 +1,65 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-ionic-webview": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-photo-library": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": "To choose photos",
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-sqlite-storage": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.blockbi.app"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-add-swift-support": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.blockbi.app"
+        }
+    }
+}

@@ -1,0 +1,72 @@
+page-public-select {
+  ion-header {
+    .select-div {
+      width: calc(100% - 20px);
+      display: flex;
+      margin-left: 10px;
+      margin-top: 10px;
+      margin-right: 10px;
+      ion-segment-button {
+        flex: 1;
+        border-radius: 4px !important;
+        margin-right: 5px !important;
+        border: none !important;
+        height: 60px !important;
+        box-shadow: 1px 1px 1px 1px #cccccc !important;
+        font-size: 11px;
+        color: #A4A6BA !important;
+        &.active {
+          color: #ffffff !important;
+          background: #488aff;
+        }
+        &.select-div-parent {
+          height: 40px !important;
+          background: #8573FB !important;
+        }
+      }
+    }
+  }
+  ion-content {
+    margin-top: 30px;
+  }
+  .select-people-list {
+    ion-label {
+      margin: 0 8px 0 0;
+    }
+    > ion-item {
+      position: relative;
+      &:nth-child(1) {
+        > .item-inner {
+          border-top: 1px solid #dedede;
+        }
+      }
+      &:nth-last-child(1) {
+        > .item-inner {
+          border-bottom: 1px solid #dedede !important;
+        }
+      }
+      ion-avatar {
+        float: left;
+      }
+      .select-people-title {
+        float: left;
+        margin-top: 5px;
+      }
+    }
+    .select-radio {
+      background: #ffffff;
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 50%;
+      border: 1px solid #ABABAB;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      &.current {
+        background: #488aff;
+      }
+    }
+  }
+}

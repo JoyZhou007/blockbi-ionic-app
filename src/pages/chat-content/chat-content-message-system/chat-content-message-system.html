@@ -1,0 +1,20 @@
+<!-- Generated template for the ChatContentMessageSystemComponent component -->
+<div *ngIf="messageObj" class="system-message">
+  <div  *ngIf="messageObj?.detail?.act_type === 7">
+    <img class="user-avatar"
+         src="{{messageObj?.user_info?.user_profile_path? appConfig.resourceDomain+messageObj?.user_info?.user_profile_path:''}}">
+    <div class="user-name">
+      <span>{{messageObj?.user_info?.work_name}}</span>
+      <span class="bi-icon-resume user-state"></span>
+      <span class="message-time">{{messageObj?.date_time}}</span>
+    </div>
+    <div class="file-name">
+      <span>comments on</span>
+      <span>{{messageObj?.detail?.file_info?.file_name}}</span>
+    </div>
+    <div class="comments-text">
+      <span class="bi-icon-comments"></span>
+      <span class="comments-text-message">{{messageObj?.detail?.commentTxt}}</span>
+    </div>
+  </div>
+</div>

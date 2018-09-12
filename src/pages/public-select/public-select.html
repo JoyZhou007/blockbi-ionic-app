@@ -1,0 +1,44 @@
+<ion-header>
+        <ion-navbar class="g-header clearfix">
+            <span class="bi-icon-down back" navPop></span>
+            <span class="g-header-title">SELECT PEOPLE</span>
+            <span class="send send-done" navPop (click)="confirmSelection($event)">DONE</span>
+        </ion-navbar>
+    <ion-segment class="select-div" *ngIf="isHasChildrenGroup">
+        <ion-segment-button class="select-div-parent" *ngFor="let tab of parentTabArray"
+                            (click)=switchParentTab($event,tab)
+                            [class.active]=tab.isActive>
+            {{tab.title}}
+        </ion-segment-button>
+    </ion-segment>
+    <ion-segment class="select-div">
+        <ion-segment-button *ngFor="let tab of displayChildTabArr"
+                            (click)=switchChildTab($event,tab)
+                            [class.active]=tab.isActive>
+            {{tab.title}}
+        </ion-segment-button>
+    </ion-segment>
+</ion-header>
+
+<ion-content padding>
+    <ion-list class="select-people-list" *ngFor="let group of childTabArray">
+        <ion-item *ngFor="let item of allDropDownOptionObj[group.key]"
+                  (click)=selectTheItem($event,item)
+                  [class.hide]="group.key != this.currentDisplayGroupKey">
+            <div>
+                <div>
+                    <ion-avatar item-start>
+                        <img src="{{item?.imageLabel? appConfig?.resourceDomain + item?.imageLabel :''}}">
+                    </ion-avatar>
+                    <div class="select-people-title">
+                        <p>{{item?.label}}</p>
+                        <p>
+                            <span class="tips-title">{{item?.desc}}</span>
+                        </p>
+                    </div>
+                </div>
+                <b class="select-radio" [class.current]=item.isCurrent *ngIf="!item.disabled"></b>
+            </div>
+        </ion-item>
+    </ion-list>
+</ion-content>

@@ -1,0 +1,78 @@
+page-chat-invite-member {
+  .chat-invite-content {
+    position: relative;
+    ion-item {
+      .item-inner {
+        padding-right: 0 !important;
+      }
+      &:first-child {
+        border-top: none !important;
+      }
+      &:last-child {
+        border-bottom: none !important;
+      }
+    }
+    .chat-invites-lab {
+      border-bottom: 1px solid #ABABAB !important;
+      padding-bottom: 5px;
+    }
+    .chat-invites-div {
+      font-size: 13px;
+      width: 100%;
+      color: #4C4B63;
+      min-height: 38px;
+      max-height: 68px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      border-bottom: 1px solid #ABABAB !important;
+      .invite-people {
+        margin-top: 7px;
+        float: left;
+        margin-right: 20px;
+        img {
+          width: 24px;
+          height: 24px;
+          border-radius: 4px 0 0 4px;
+          float: left;
+        }
+        .selected-people-name {
+          height: 24px;
+          width: 80px;
+          float: left;
+          background: #7078F7;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          line-height: 24px;
+          color: #ffffff;
+          padding-left: 4px;
+        }
+        .selected-delete {
+          height: 24px;
+          width: 22px;
+          float: left;
+          color: #ffffff;
+          line-height: 24px;
+          background: #7078F7;
+          padding-left: 6px;
+          border-radius: 0 4px 4px 0;
+          &.bi-icon-esc:before {
+            font-size: 10px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    .bi-icon-arrow {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      transform: rotate(-90deg);
+      &:before {
+        font-size: 12px;
+        color: #ABABAB;
+      }
+    }
+  }
+
+}

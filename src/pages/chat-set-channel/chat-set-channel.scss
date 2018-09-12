@@ -1,0 +1,19 @@
+page-chat-set-channel {
+  .chat-set-content{
+    .item-input{
+      ion-label{
+        height: 16px;
+        line-height: 16px;
+      }
+      ion-input{
+        border-bottom: 1px solid #c8c7cc;
+        border-top: 1px solid #c8c7cc;
+      }
+    }
+    .chat-set-invite{
+      margin-top: 10px;
+      font-size: 11px;
+      color: #7b7f8a;
+    }
+  }
+}
